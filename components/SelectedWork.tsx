@@ -56,14 +56,14 @@ function TextCol({ number, title, tags, description, eyebrow }: { number: string
       <span className="text-[11px] font-mono text-gray-300 mb-5 tracking-widest">
         {number}
       </span>
+      <h2 className="font-serif font-normal text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] tracking-[-0.02em] text-gray-900 mb-3 group-hover:text-[#3B82F6] transition-colors duration-300">
+        {title}
+      </h2>
       {eyebrow && (
         <span className="text-[10px] font-semibold tracking-[0.18em] text-[#3B82F6] uppercase mb-3">
           {eyebrow}
         </span>
       )}
-      <h2 className="font-serif font-normal text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] tracking-[-0.02em] text-gray-900 mb-5 group-hover:text-[#3B82F6] transition-colors duration-300">
-        {title}
-      </h2>
       {description && (
         <p className="text-[14px] leading-relaxed text-gray-500 font-light mb-5">
           {description}

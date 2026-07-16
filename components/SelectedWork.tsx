@@ -20,6 +20,7 @@ const projects = [
     imageAlt: "AI Agent Platform project screenshot",
     imageLeft: false,
     href: "/project-1",
+    description: undefined as string | undefined,
   },
   {
     number: "02",
@@ -29,19 +30,21 @@ const projects = [
     imageAlt: "Shopee AI Chatbot Builder project screenshot",
     imageLeft: true,
     href: "/project-2",
+    description: undefined as string | undefined,
   },
   {
     number: "03",
-    title: "Vibe Coding Released",
-    tags: "AI EXPERIMENTAL  •  NEXT.JS  •  2025",
-    image: "/project-3.png",
-    imageAlt: "Vibe Coding Released project screenshot",
+    title: "SeedFlow",
+    tags: "CONSUMER AI  •  CREATOR TOOLS  •  2025",
+    image: "/seedflow-hero.png",
+    imageAlt: "SeedFlow app mockup — account health score 62 out of 100 with content analysis and hashtag suggestions",
     imageLeft: false,
-    href: null,
+    href: "/seedflow",
+    description: "AI creation assistant for Xiaohongshu creators — turning personal images into platform-ready posts.",
   },
 ];
 
-function TextCol({ number, title, tags }: { number: string; title: string; tags: string }) {
+function TextCol({ number, title, tags, description }: { number: string; title: string; tags: string; description?: string }) {
   return (
     <motion.div
       {...scrollFadeUp(0)}
@@ -53,6 +56,11 @@ function TextCol({ number, title, tags }: { number: string; title: string; tags:
       <h2 className="font-serif font-normal text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] tracking-[-0.02em] text-gray-900 mb-5 group-hover:text-[#3B82F6] transition-colors duration-300">
         {title}
       </h2>
+      {description && (
+        <p className="text-[14px] leading-relaxed text-gray-500 font-light mb-5">
+          {description}
+        </p>
+      )}
       <p className="text-[10.5px] font-medium tracking-[0.16em] text-gray-300 uppercase">
         {tags}
       </p>
@@ -88,19 +96,19 @@ export default function SelectedWork() {
       </motion.p>
 
       <div className="flex flex-col gap-y-32">
-        {projects.map(({ number, title, tags, image, imageAlt, imageLeft, href }) => {
+        {projects.map(({ number, title, tags, image, imageAlt, imageLeft, href, description }) => {
           const inner = (
             <>
               {!imageLeft && (
                 <>
-                  <TextCol number={number} title={title} tags={tags} />
+                  <TextCol number={number} title={title} tags={tags} description={description} />
                   <ImageCol image={image} imageAlt={imageAlt} />
                 </>
               )}
               {imageLeft && (
                 <>
                   <ImageCol image={image} imageAlt={imageAlt} />
-                  <TextCol number={number} title={title} tags={tags} />
+                  <TextCol number={number} title={title} tags={tags} description={description} />
                 </>
               )}
             </>

@@ -21,6 +21,7 @@ const projects = [
     imageLeft: false,
     href: "/project-1",
     description: undefined as string | undefined,
+    eyebrow: undefined as string | undefined,
   },
   {
     number: "02",
@@ -31,6 +32,7 @@ const projects = [
     imageLeft: true,
     href: "/project-2",
     description: undefined as string | undefined,
+    eyebrow: undefined as string | undefined,
   },
   {
     number: "03",
@@ -41,10 +43,11 @@ const projects = [
     imageLeft: false,
     href: "/seedflow",
     description: "AI creation assistant for Xiaohongshu creators — turning personal images into platform-ready posts.",
+    eyebrow: "VIBE CODING PROJECT",
   },
 ];
 
-function TextCol({ number, title, tags, description }: { number: string; title: string; tags: string; description?: string }) {
+function TextCol({ number, title, tags, description, eyebrow }: { number: string; title: string; tags: string; description?: string; eyebrow?: string }) {
   return (
     <motion.div
       {...scrollFadeUp(0)}
@@ -53,6 +56,11 @@ function TextCol({ number, title, tags, description }: { number: string; title: 
       <span className="text-[11px] font-mono text-gray-300 mb-5 tracking-widest">
         {number}
       </span>
+      {eyebrow && (
+        <span className="text-[10px] font-semibold tracking-[0.18em] text-[#3B82F6] uppercase mb-3">
+          {eyebrow}
+        </span>
+      )}
       <h2 className="font-serif font-normal text-[clamp(2rem,4vw,3.25rem)] leading-[1.1] tracking-[-0.02em] text-gray-900 mb-5 group-hover:text-[#3B82F6] transition-colors duration-300">
         {title}
       </h2>
@@ -96,19 +104,19 @@ export default function SelectedWork() {
       </motion.p>
 
       <div className="flex flex-col gap-y-32">
-        {projects.map(({ number, title, tags, image, imageAlt, imageLeft, href, description }) => {
+        {projects.map(({ number, title, tags, image, imageAlt, imageLeft, href, description, eyebrow }) => {
           const inner = (
             <>
               {!imageLeft && (
                 <>
-                  <TextCol number={number} title={title} tags={tags} description={description} />
+                  <TextCol number={number} title={title} tags={tags} description={description} eyebrow={eyebrow} />
                   <ImageCol image={image} imageAlt={imageAlt} />
                 </>
               )}
               {imageLeft && (
                 <>
                   <ImageCol image={image} imageAlt={imageAlt} />
-                  <TextCol number={number} title={title} tags={tags} description={description} />
+                  <TextCol number={number} title={title} tags={tags} description={description} eyebrow={eyebrow} />
                 </>
               )}
             </>

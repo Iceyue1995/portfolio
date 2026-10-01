@@ -28,7 +28,7 @@ const scrollFadeUp = {
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const metadata = [
-  { label: "ROLE",     value: "Product Strategy, UX/UI, AI Workflow, Rapid Prototyping" },
+  { label: "ROLE",     value: "Product Builder" },
   { label: "TYPE",     value: "Creator Tool" },
   { label: "PLATFORM", value: "Mobile Web / App" },
   { label: "STATUS",   value: "Active Development" },
@@ -131,6 +131,19 @@ const successSignals = [
     title: "Repeat usage",
     desc: "Would they come back for another batch?",
   },
+];
+
+// Research snapshot data
+const researchInputs = [
+  "User conversations",
+  "Public account & content patterns",
+  "Manual business-case validation",
+];
+
+const recurringFrictions = [
+  "Incomplete account structure",
+  "Topic exhaustion",
+  "Weak content format",
 ];
 
 // Image placeholder — to be replaced with final images
@@ -432,6 +445,92 @@ export default function SeedFlowPage() {
             {phase2Research.map((item) => (
               <p key={item} className="text-[#101e18] text-[16px] font-normal leading-[24px]">{item}</p>
             ))}
+          </div>
+        </motion.section>
+
+        {/* ── Research Snapshot ─────────────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp}>
+          <div className="bg-[#fcf9f4] rounded-[32px] p-6 md:p-10 flex flex-col gap-6">
+            <div className="flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#848484] shrink-0" />
+              <p className="text-[#4c4546] text-[12px] font-medium tracking-[0.1em] uppercase">
+                RESEARCH SNAPSHOT
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-0">
+              {/* Left — main metric */}
+              <div className="md:col-span-4 flex flex-row md:flex-col items-center md:items-start justify-start md:justify-center gap-4 md:gap-2 md:pr-8">
+                <p className="text-[clamp(3.5rem,6vw,5.5rem)] font-bold leading-[0.9] tracking-[-0.06em] text-[#101e18]">
+                  52
+                </p>
+                <p className="text-[16px] font-normal leading-[1.5] text-[#4c4546] max-w-[220px]">
+                  Xiaohongshu business accounts analysed
+                </p>
+              </div>
+
+              {/* Right — inputs + frictions */}
+              <div className="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:border-l border-[rgba(207,196,197,0.3)] md:pl-8">
+                {/* Research inputs */}
+                <div className="flex flex-col gap-3">
+                  <h3 className="text-[12px] font-bold tracking-[0.1em] uppercase text-[#101e18]">
+                    Research inputs
+                  </h3>
+                  <div className="flex flex-col border-t border-[rgba(207,196,197,0.3)]">
+                    {researchInputs.map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-start gap-3 py-3 border-b border-[rgba(207,196,197,0.3)]"
+                      >
+                        <span className="w-[6px] h-[6px] rounded-full bg-[#848484] shrink-0 mt-[9px]" />
+                        <p className="text-[15px] font-normal leading-[1.5] text-[#101e18]">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recurring frictions */}
+                <div className="flex flex-col gap-3">
+                  <h3 className="text-[12px] font-bold tracking-[0.1em] uppercase text-[#101e18]">
+                    Recurring frictions
+                  </h3>
+                  <div className="flex flex-col border-t border-[rgba(207,196,197,0.3)]">
+                    {recurringFrictions.map((item, i) => (
+                      <div
+                        key={item}
+                        className="flex items-start gap-3 py-3 border-b border-[rgba(207,196,197,0.3)]"
+                      >
+                        <span className="w-6 h-6 rounded-full bg-black text-white flex items-center justify-center shrink-0 text-[11px] font-semibold">
+                          {i + 1}
+                        </span>
+                        <p className="text-[15px] font-normal leading-[1.5] text-[#101e18] pt-[1px]">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Conclusion strip */}
+            <div className="bg-[rgba(255,255,255,0.5)] border border-white rounded-2xl px-5 py-4 flex items-center gap-5">
+              {/* Abstract synthesis schematic: several generic cards → one refined card */}
+              <div aria-hidden="true" className="hidden sm:flex items-center gap-2 shrink-0">
+                <div className="relative w-[36px] h-[28px]">
+                  <div className="absolute left-0 top-0 w-[22px] h-[16px] rounded-[5px] border border-[rgba(207,196,197,0.5)] bg-white" />
+                  <div className="absolute left-[7px] top-[6px] w-[22px] h-[16px] rounded-[5px] border border-[rgba(207,196,197,0.5)] bg-white" />
+                  <div className="absolute left-[14px] top-[12px] w-[22px] h-[16px] rounded-[5px] border border-[rgba(207,196,197,0.5)] bg-white" />
+                </div>
+                <div className="w-4 h-[2px] bg-[rgba(207,196,197,0.8)]" />
+                <div className="w-[28px] h-[28px] rounded-lg bg-black flex flex-col items-center justify-center gap-[3px]">
+                  <span className="w-[12px] h-[2px] rounded-full bg-white" />
+                  <span className="w-[8px] h-[2px] rounded-full bg-white/60" />
+                </div>
+              </div>
+              <p className="text-[16px] font-normal leading-[1.5] text-[#4c4546]">
+                These patterns informed the shift from a creator-focused content assistant to a small-business
+                growth workflow.
+              </p>
+            </div>
           </div>
         </motion.section>
 

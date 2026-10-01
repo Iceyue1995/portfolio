@@ -17,6 +17,19 @@ const pastProjects = [
   { product: "Huawei Digital Platforms", model: "B2B / B2C", role: "UX / Product Designer", domain: "Enterprise and consumer digital products" },
 ];
 
+const clientLogos = [
+  { name: "BMW", src: "/images/logos/bmw.png", s: 1.25 },
+  { name: "Huawei", src: "/images/logos/huawei.png", s: 1.05 },
+  { name: "Hyundai", src: "/images/logos/hyundai.png", s: 1.3 },
+  { name: "LVMH", src: "/images/logos/lvmh.png", s: 1 },
+  { name: "L'Oréal", src: "/images/logos/loreal.png", s: 1.1 },
+  { name: "Lexus", src: "/images/logos/lexus.png", s: 1.05 },
+  { name: "Siemens", src: "/images/logos/siemens.png", s: 1.1 },
+  { name: "P&G", src: "/images/logos/pg.png", s: 1 },
+  { name: "Apple", src: "/images/logos/apple.png", s: 0.95 },
+  { name: "McDonald's", src: "/images/logos/mcdonalds-mark.png", s: 1.05, dim: true },
+];
+
 export default function AboutPage() {
   const fadeInUp = {
     initial: { opacity: 0, y: 40 },
@@ -120,29 +133,19 @@ export default function AboutPage() {
         {...fadeInUp}
         className="max-w-7xl mx-auto px-6 md:px-12 py-12"
       >
-        <div className="bg-[#F4F7FB] rounded-[2.5rem] p-12 md:p-20 grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <span className="text-xs font-bold tracking-widest text-blue-500 uppercase block mb-10">Expertise</span>
-            <ul className="space-y-5">
-              <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div><span className="font-semibold text-slate-800">LLM-powered Interface Design</span></li>
-              <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div><span className="font-medium text-slate-700">Prompt Engineering Strategy</span></li>
-              <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div><span className="font-medium text-slate-700">RAG Architecture Visualization</span></li>
-              <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div><span className="font-medium text-slate-700">Model Selection & Evaluation</span></li>
-              <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div><span className="font-medium text-slate-700">AI Strategy & Iteration</span></li>
-            </ul>
-          </div>
-          <div>
-            <span className="text-xs font-bold tracking-widest text-blue-500 uppercase block mb-10">Toolkit</span>
-            <div className="flex flex-wrap gap-3">
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">Figma</span>
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">Prototyping</span>
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">Python (Basic)</span>
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">React</span>
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">User Research</span>
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">Systems Design</span>
-              <span className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 shadow-sm border border-gray-100">LLM Prompting</span>
+        <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-12">Selected clients</h2>
+        <div className="bg-[#F4F7FB] rounded-[2.5rem] px-6 py-10 md:px-12 md:py-12 flex flex-wrap items-center justify-center gap-y-8 md:gap-y-10">
+          {clientLogos.map(({ name, src, s, dim }) => (
+            <div key={name} className="w-1/2 md:w-1/5 flex items-center justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={name}
+                style={{ width: 140 * s, height: 44 * s }}
+                className={`max-w-[80%] object-contain mix-blend-multiply grayscale opacity-60 transition duration-300 hover:grayscale-0 hover:opacity-100 ${dim ? "brightness-[0.6] hover:brightness-100" : ""}`}
+              />
             </div>
-          </div>
+          ))}
         </div>
       </motion.section>
 

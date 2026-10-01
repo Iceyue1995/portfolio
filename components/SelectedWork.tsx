@@ -36,13 +36,13 @@ const projects = [
   },
   {
     number: "03",
-    title: "Vibe Coding Project",
-    tags: "CONSUMER AI  •  CREATOR TOOLS  •  2025",
+    title: "AI Growth Workflow for Small Businesses",
+    tags: "AI PRODUCT  •  0→1 MVP  •  SMALL BUSINESS  •  2026",
     image: "/seedflow-hero.png",
     imageAlt: "SeedFlow app mockup — account health score 62 out of 100 with content analysis and hashtag suggestions",
     imageLeft: false,
     href: "/seedflow",
-    description: "AI creation assistant for Xiaohongshu creators — turning personal images into platform-ready posts.",
+    description: "A focused Xiaohongshu MVP that diagnoses account gaps, generates ready-to-publish content, and helps businesses publish more consistently.",
     eyebrow: "SeedFlow",
   },
 ];

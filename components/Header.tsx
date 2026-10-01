@@ -31,6 +31,8 @@ function SparkleIcon() {
   );
 }
 
+const X_URL = "https://x.com/Pinusl_";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
@@ -66,6 +68,14 @@ export default function Header() {
             {label}
           </Link>
         ))}
+        <a
+          href={X_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[14px] font-medium text-gray-500 hover:text-gray-900 transition-colors"
+        >
+          X<span aria-hidden="true"> ↗</span>
+        </a>
       </nav>
 
       {/* ── Mobile hamburger ── */}
@@ -109,7 +119,15 @@ export default function Header() {
               {label}
             </Link>
           ))}
-
+          <a
+            href={X_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="text-[15px] font-medium text-gray-700 hover:text-gray-900"
+          >
+            X<span aria-hidden="true"> ↗</span>
+          </a>
         </nav>
       )}
     </header>

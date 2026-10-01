@@ -155,7 +155,7 @@ function Shot({
       className="absolute overflow-hidden rounded-2xl border border-[rgba(207,196,197,0.5)] bg-white shadow-[0px_6px_20px_-10px_rgba(0,0,0,0.12)]"
       style={style}
     >
-      <Image src={src} alt={alt} width={w} height={h} sizes="(min-width: 768px) 30vw, 90vw" className="w-full h-auto block" />
+      <Image src={src} alt={alt} width={w} height={h} sizes="(min-width: 768px) 30vw, 90vw" className="h-full w-auto block max-w-none" />
     </div>
   );
 }
@@ -559,13 +559,13 @@ export default function SeedFlowPage() {
             </p>
           </div>
           <div className="flex-1 w-full min-w-0">
-            <div className={`${frameClass} aspect-[4/5]`}>
-              <Image src="/images/sf6-flow.webp" width={1600} height={2000}
+            <div className={`${frameClass} aspect-[3/2]`}>
+              <Image src="/images/sf7-flow.webp" fill
                 alt="Diagnose, generate, publish: the SeedFlow workflow"
-                sizes="(min-width: 768px) 40vw, 90vw" className="w-full h-auto block" />
+                sizes="(min-width: 768px) 40vw, 90vw" className="object-cover" />
             </div>
             <p className="mt-3 text-[12px] font-normal leading-[1.5] text-[#7e7576]">
-              Final MVP interface — designed for Xiaohongshu small-business users.
+              The SeedFlow workflow, built for Xiaohongshu small-business users.
             </p>
           </div>
         </motion.section>
@@ -589,18 +589,18 @@ export default function SeedFlowPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
             {/* Diagnose before generating */}
             <div className={`${frameClass} aspect-[3/4]`}>
-              <Shot src="/images/sf4-diagnosis-top.webp" w={780} h={1205} alt="Final MVP: homepage diagnosis and screenshot upload"
-                style={{ left: "14%", top: "5%", width: "72%" }} />
+              <Shot src="/images/sf3-upload.webp" w={780} h={1205} alt="Final MVP: homepage diagnosis and screenshot upload"
+                style={{ left: "50%", top: "50%", height: "80%", transform: "translate(-50%, -50%)" }} />
             </div>
             {/* Different strategies for different account states */}
             <div className={`${frameClass} aspect-[3/4]`}>
-              <Shot src="/images/sf4-state-full.webp" w={776} h={1274} alt="Final MVP: choose between reviving an existing account and launching a new one"
-                style={{ left: "14%", top: "5%", width: "72%" }} />
+              <Shot src="/images/sf3-state-cards.webp" w={738} h={1050} alt="Final MVP: choose between reviving an existing account and launching a new one"
+                style={{ left: "50%", top: "50%", height: "80%", transform: "translate(-50%, -50%)" }} />
             </div>
             {/* Finished content, not just ideas */}
             <div className={`${frameClass} aspect-[3/4]`}>
-              <Shot src="/images/sf2-output-card.webp" w={684} h={1160} alt="Final MVP: finished post with title, copy and hashtags"
-                style={{ left: "14%", top: "5%", width: "72%" }} />
+              <Shot src="/images/sf-output-post-en.webp" w={692} h={1096} alt="Final MVP: finished post with title, copy and hashtags"
+                style={{ left: "50%", top: "50%", height: "80%", transform: "translate(-50%, -50%)" }} />
             </div>
           </div>
         </motion.section>

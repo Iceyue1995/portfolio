@@ -104,7 +104,6 @@ const phase2Decisions = [
   {
     title: "Different strategies for different account states",
     desc: "Existing-account revival and 0→1 account launch follow different content logic and trust-building paths.",
-    image: { src: "/images/sf3-state-cards.webp", w: 738, h: 1050, alt: "Final MVP: choose between reviving an existing account and launching a new one" },
   },
   {
     title: "Finished content, not just ideas",
@@ -214,7 +213,7 @@ export default function SeedFlowPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-black text-white text-[14px] font-semibold tracking-[0.05em] h-[56px] px-10 rounded-full shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)]"
                 >
-                  View Prototype
+                  View MVP Demo
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/images/sf-icon-arrow.svg" alt="" className="w-3 h-3" />
                 </a>
@@ -561,10 +560,9 @@ export default function SeedFlowPage() {
           </div>
           <div className="flex-1 w-full min-w-0">
             <div className={`${frameClass} aspect-[4/5]`}>
-              <Shot src="/images/sf3-welcome.webp" w={779} h={1400} alt="Final MVP: welcome screen"
-                style={{ left: "3%", top: "7%", width: "48%" }} />
-              <Shot src="/images/sf3-result.webp" w={780} h={1472} alt="Final MVP: diagnostic result showing missing business details"
-                style={{ left: "50%", top: "22%", width: "47%" }} />
+              <Image src="/images/sf6-flow.webp" width={1600} height={2000}
+                alt="Diagnose, generate, publish: the SeedFlow workflow"
+                sizes="(min-width: 768px) 40vw, 90vw" className="w-full h-auto block" />
             </div>
             <p className="mt-3 text-[12px] font-normal leading-[1.5] text-[#7e7576]">
               Final MVP interface — designed for Xiaohongshu small-business users.
@@ -581,32 +579,28 @@ export default function SeedFlowPage() {
             Phase 02 decisions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
-            {phase2Decisions.map(({ title, desc, image }) => (
+            {phase2Decisions.map(({ title, desc }) => (
               <div key={title} className="flex flex-col gap-2">
                 <h3 className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">{title}</h3>
                 <p className="text-[16px] font-normal leading-[1.5] text-[#4c4546]">{desc}</p>
-                {image && (
-                  <div className="mt-4 w-full max-w-[240px] overflow-hidden rounded-2xl border border-[rgba(207,196,197,0.5)] bg-[#fcf9f4]">
-                    <Image src={image.src} alt={image.alt} width={image.w} height={image.h} sizes="240px" className="w-full h-auto block" />
-                  </div>
-                )}
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
-            {/* Account diagnosis */}
-            <div className={`${frameClass} aspect-[4/3]`}>
-              <Shot src="/images/sf3-upload.webp" w={780} h={1205} alt="Final MVP: profile audit, screenshot upload and sector input"
-                style={{ left: "17%", top: "10%", width: "66%" }} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+            {/* Diagnose before generating */}
+            <div className={`${frameClass} aspect-[3/4]`}>
+              <Shot src="/images/sf4-diagnosis-top.webp" w={780} h={1205} alt="Final MVP: homepage diagnosis and screenshot upload"
+                style={{ left: "14%", top: "5%", width: "72%" }} />
             </div>
-            {/* Content generation flow */}
-            <div className={`${frameClass} aspect-[4/3]`}>
-              <Shot src="/images/sf2-output-shoot.webp" w={700} h={455} alt="Final MVP: shooting checklist"
-                style={{ left: "47%", top: "14%", width: "48%", zIndex: 1 }} />
-              <Shot src="/images/sf2-output-why.webp" w={700} h={252} alt="Final MVP: why this was written"
-                style={{ left: "47%", top: "62%", width: "48%", zIndex: 1 }} />
+            {/* Different strategies for different account states */}
+            <div className={`${frameClass} aspect-[3/4]`}>
+              <Shot src="/images/sf4-state-full.webp" w={776} h={1274} alt="Final MVP: choose between reviving an existing account and launching a new one"
+                style={{ left: "14%", top: "5%", width: "72%" }} />
+            </div>
+            {/* Finished content, not just ideas */}
+            <div className={`${frameClass} aspect-[3/4]`}>
               <Shot src="/images/sf2-output-card.webp" w={684} h={1160} alt="Final MVP: finished post with title, copy and hashtags"
-                style={{ left: "5%", top: "8%", width: "37%", zIndex: 2 }} />
+                style={{ left: "14%", top: "5%", width: "72%" }} />
             </div>
           </div>
         </motion.section>

@@ -10,17 +10,14 @@ const pastProjects = [
   { product: "Growth Daily", model: "B2C", role: "Product Founder / Owner", domain: "Multi-model AI learning platform" },
   { product: "GodGPT", model: "B2C", role: "Product Development Manager", domain: "Conversational AI / spiritual reflection product" },
   { product: "Alti", model: "B2C", role: "Product Founder / Owner", domain: "Cross-device safety companion" },
-  { product: "Career Scout", model: "B2C", role: "Product Founder / Owner", domain: "AI-assisted job discovery and decision tool" },
   { product: "AI Mascot Platform", model: "B2B SaaS", role: "Sole Product Designer", domain: "Configurable AI agent / knowledge platform" },
   { product: "Shopee Chatbot Builder", model: "B2B", role: "Product Designer", domain: "Conversational AI platform for regional operators" },
-  { product: "Shopee Knowledge & Chatbot Admin", model: "B2B", role: "Product Designer", domain: "Customer-service knowledge and operations platform" },
   { product: "Genesis Digital Ecosystem", model: "B2C", role: "UX Manager / Design Lead", domain: "Luxury automotive website + mini-program ecosystem" },
   { product: "Brandar Radar", model: "B2B", role: "Senior UI/UX Designer", domain: "BI / social intelligence and permission-management platform" },
   { product: "BMW Digital Products", model: "B2B / B2C", role: "UI/UX Designer", domain: "Automotive digital experiences and enterprise workflows" },
   { product: "Lexus Digital Products", model: "B2B / B2C", role: "UI/UX Designer", domain: "Automotive digital experience" },
   { product: "Huawei Digital Platforms", model: "B2B / B2C", role: "UX / Product Designer", domain: "Enterprise and consumer digital products" },
   { product: "L’Oréal Digital Products", model: "B2B / B2C", role: "UI/UX Designer", domain: "Beauty / digital commerce and internal platforms" },
-  { product: "HKU Digital Experience", model: "B2C", role: "UX Manager / Design Lead", domain: "Education / digital service experience" },
 ];
 
 export default function AboutPage() {
@@ -72,31 +69,19 @@ export default function AboutPage() {
         {...fadeInUp}
         className="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-gray-200"
       >
-        <div className="flex items-end justify-between mb-8">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900">Selected Projects</h2>
-          <span className="text-[11px] font-mono tracking-widest text-gray-400 uppercase pb-1.5">
-            {String(pastProjects.length).padStart(2, "0")} Projects
-          </span>
-        </div>
-        <div className="hidden md:grid md:grid-cols-[minmax(0,2.6fr)_minmax(0,1.1fr)_minmax(0,2.2fr)_minmax(0,4.1fr)] gap-6 px-5 pb-3 text-[11px] font-semibold tracking-[0.18em] text-gray-400 uppercase">
-          <span className="pl-9">Product</span>
-          <span>Model</span>
-          <span>Role</span>
-          <span>Product / Domain</span>
-        </div>
-        <ul className="flex flex-col gap-1.5">
-          {pastProjects.map(({ product, model, role, domain }, i) => (
+        <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-12">Selected Projects</h2>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {pastProjects.map(({ product, model, role, domain }) => (
             <li
               key={product}
-              className="group grid grid-cols-1 md:grid-cols-[minmax(0,2.6fr)_minmax(0,1.1fr)_minmax(0,2.2fr)_minmax(0,4.1fr)] gap-x-6 gap-y-0.5 px-5 py-3 items-baseline rounded-2xl border border-gray-100 bg-white transition-all duration-200 hover:border-blue-100 hover:bg-[#F4F7FB] hover:shadow-[0_6px_20px_-12px_rgba(37,99,235,0.25)]"
+              className="group flex flex-col gap-3 bg-white rounded-2xl border border-gray-100 p-6 shadow-[0_2px_10px_rgba(0,0,0,0.02)] transition-shadow hover:shadow-lg"
             >
-              <span className="flex items-baseline gap-3">
-                <span className="w-6 shrink-0 text-[11px] font-mono tracking-widest text-gray-300 transition-colors group-hover:text-blue-500">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-sm font-semibold tracking-tight text-slate-900">{product}</span>
-              </span>
-              <span className="text-[11px] font-mono tracking-wider text-gray-500">{model}</span>
-              <span className="text-[13px] font-medium text-slate-800">{role}</span>
-              <span className="text-[13px] text-gray-500 leading-snug">{domain}</span>
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="text-lg font-serif font-bold text-slate-900 leading-snug transition-colors group-hover:text-blue-600">{product}</h3>
+                <span className="shrink-0 mt-1 rounded-full bg-blue-50 px-2.5 py-0.5 text-[11px] font-medium text-blue-600">{model}</span>
+              </div>
+              <p className="text-sm font-medium text-slate-800">{role}</p>
+              <p className="text-sm text-gray-500 leading-relaxed">{domain}</p>
             </li>
           ))}
         </ul>

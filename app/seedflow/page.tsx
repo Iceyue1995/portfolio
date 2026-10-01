@@ -88,6 +88,64 @@ const decisions = [
   },
 ];
 
+// ── Phase 02 data ─────────────────────────────────────────────────────────────
+const phase2Research = [
+  "User conversations",
+  "52 business accounts analysed",
+  "Public account and content patterns",
+  "Manual validation with real business cases",
+];
+
+const phase2Decisions = [
+  {
+    title: "Diagnose before generating",
+    desc: "Identify missing profile, booking, and business information before creating content.",
+  },
+  {
+    title: "Different strategies for different account states",
+    desc: "Existing-account revival and 0→1 account launch follow different content logic and trust-building paths.",
+  },
+  {
+    title: "Finished content, not just ideas",
+    desc: "Each output includes full copy, hashtags, shooting guidance, and the reasoning behind the recommendation.",
+  },
+];
+
+const notBuilt = [
+  "No auto-publishing",
+  "No image / video generation",
+  "No multi-account collaboration",
+  "No full subscription infrastructure",
+];
+
+const successSignals = [
+  {
+    title: "Willingness to pay",
+    desc: "Would small-business owners pay, even at a low trial price?",
+  },
+  {
+    title: "Publishing completion",
+    desc: "Would users actually publish the generated content?",
+  },
+  {
+    title: "Repeat usage",
+    desc: "Would they come back for another batch?",
+  },
+];
+
+// Image placeholder — to be replaced with final images
+function ImagePlaceholder({ label, className = "" }: { label: string; className?: string }) {
+  return (
+    <div
+      role="img"
+      aria-label={`${label} (placeholder)`}
+      className={`w-full rounded-[32px] border border-[rgba(207,196,197,0.3)] bg-[#fcf9f4] flex items-center justify-center ${className}`}
+    >
+      <span className="text-[#7e7576] text-[12px] font-medium tracking-[0.05em] uppercase">{label}</span>
+    </div>
+  );
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function SeedFlowPage() {
   return (
@@ -347,6 +405,141 @@ export default function SeedFlowPage() {
                 <div className="absolute inset-[12.5%] rounded-full bg-[rgba(0,0,0,0.05)]" />
               </div>
             </div>
+          </div>
+        </motion.section>
+
+        {/* ── Phase 02 · 1: What changed after validation ───────────────────── */}
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pt-16">
+          <div className="flex flex-col gap-2">
+            <div className="self-start bg-black text-white text-[12px] font-medium tracking-[0.1em] uppercase px-3 py-1 rounded-full mb-2">
+              PHASE 02
+            </div>
+            <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] mt-2">
+              What changed after validation
+            </h2>
+          </div>
+          <div className="flex flex-col gap-4 max-w-[672px]">
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              The first release showed that content generation was only part of the problem.
+            </p>
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              Through user feedback, account analysis, and observation of Xiaohongshu small-business accounts,
+              I found a broader challenge: many owners struggled to publish consistently, present their business
+              clearly, and turn content into something that could support business outcomes.
+            </p>
+          </div>
+          <div className="border-t border-[rgba(207,196,197,0.3)] pt-8 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8">
+            {phase2Research.map((item) => (
+              <p key={item} className="text-[#101e18] text-[16px] font-normal leading-[24px]">{item}</p>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ── Phase 02 · 2: Reframing SeedFlow ──────────────────────────────── */}
+        <motion.section
+          {...scrollFadeUp}
+          className="flex flex-col md:flex-row gap-12 md:gap-16 items-center pt-16"
+        >
+          <div className="flex-1 flex flex-col gap-6 min-w-0">
+            <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+              From content assistant to growth workflow
+            </h2>
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[576px]">
+              SeedFlow evolved into an AI-assisted workflow for Xiaohongshu small businesses:
+            </p>
+            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+              Diagnose → Generate → Publish
+            </p>
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[576px]">
+              The final MVP focused on identifying account gaps, generating context-aware content, and helping
+              owners move from recommendation to actual publishing.
+            </p>
+          </div>
+          <div className="flex-1 w-full min-w-0">
+            <ImagePlaceholder label="Final MVP screens" className="aspect-[4/5]" />
+          </div>
+        </motion.section>
+
+        {/* ── Phase 02 · 3: Key Product Decisions ───────────────────────────── */}
+        <motion.section
+          {...scrollFadeUp}
+          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
+        >
+          <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+            Phase 02 decisions
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+            {phase2Decisions.map(({ title, desc }) => (
+              <div key={title} className="flex flex-col gap-2">
+                <h3 className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">{title}</h3>
+                <p className="text-[16px] font-normal leading-[1.5] text-[#4c4546]">{desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+            <ImagePlaceholder label="Account diagnosis" className="aspect-[4/3]" />
+            <ImagePlaceholder label="Content generation flow" className="aspect-[4/3]" />
+          </div>
+        </motion.section>
+
+        {/* ── Phase 02 · 4: MVP scope ───────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp}>
+          <div className="bg-[#fcf9f4] rounded-[32px] p-10 md:p-16 flex flex-col gap-8">
+            <div className="flex flex-col gap-2">
+              <div className="self-start bg-black text-white text-[12px] font-medium tracking-[0.1em] uppercase px-3 py-1 rounded-full mb-2">
+                MVP SCOPE
+              </div>
+              <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] mt-2">
+                What I deliberately did not build
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 border-t border-[rgba(207,196,197,0.3)]">
+              {notBuilt.map((item) => (
+                <p
+                  key={item}
+                  className="text-[18px] font-semibold leading-[1.6] text-[#101e18] py-5 border-b border-[rgba(207,196,197,0.3)]"
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              The MVP was designed to validate behaviour, not feature breadth.
+            </p>
+          </div>
+        </motion.section>
+
+        {/* ── Phase 02 · 5: What success means ──────────────────────────────── */}
+        <motion.section
+          {...scrollFadeUp}
+          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
+        >
+          <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+            What success means
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
+            {successSignals.map(({ title, desc }) => (
+              <div key={title} className="flex flex-col gap-2">
+                <h3 className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">{title}</h3>
+                <p className="text-[16px] font-normal leading-[1.5] text-[#4c4546]">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ── Phase 02 · 6: Reflection ──────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pt-8 pb-8">
+          <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+            What I learned
+          </h2>
+          <div className="flex flex-col gap-4 max-w-[672px]">
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              SeedFlow started as a content-generation product. It became stronger when I stopped asking what
+              else AI could generate, and started asking what behaviour the product needed to change.
+            </p>
+            <p className="text-[18px] font-bold leading-[1.6] text-[#101e18]">
+              The biggest shift was not visual. It was redefining the product problem.
+            </p>
           </div>
         </motion.section>
 

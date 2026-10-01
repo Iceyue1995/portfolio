@@ -9,15 +9,12 @@ const pastProjects = [
   { product: "SeedFlow", model: "B2C / SMB", role: "Product Founder / Owner", domain: "AI growth workflow for Xiaohongshu small businesses" },
   { product: "Growth Daily", model: "B2C", role: "Product Founder / Owner", domain: "Multi-model AI learning platform" },
   { product: "GodGPT", model: "B2C", role: "Product Development Manager", domain: "Conversational AI / spiritual reflection product" },
-  { product: "Alti", model: "B2C", role: "Product Founder / Owner", domain: "Cross-device safety companion" },
   { product: "AI Mascot Platform", model: "B2B SaaS", role: "Sole Product Designer", domain: "Configurable AI agent / knowledge platform" },
   { product: "Shopee Chatbot Builder", model: "B2B", role: "Product Designer", domain: "Conversational AI platform for regional operators" },
   { product: "Genesis Digital Ecosystem", model: "B2C", role: "UX Manager / Design Lead", domain: "Luxury automotive website + mini-program ecosystem" },
   { product: "Brandar Radar", model: "B2B", role: "Senior UI/UX Designer", domain: "BI / social intelligence and permission-management platform" },
   { product: "BMW Digital Products", model: "B2B / B2C", role: "UI/UX Designer", domain: "Automotive digital experiences and enterprise workflows" },
-  { product: "Lexus Digital Products", model: "B2B / B2C", role: "UI/UX Designer", domain: "Automotive digital experience" },
   { product: "Huawei Digital Platforms", model: "B2B / B2C", role: "UX / Product Designer", domain: "Enterprise and consumer digital products" },
-  { product: "L’Oréal Digital Products", model: "B2B / B2C", role: "UI/UX Designer", domain: "Beauty / digital commerce and internal platforms" },
 ];
 
 export default function AboutPage() {

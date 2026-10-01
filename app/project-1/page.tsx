@@ -636,17 +636,19 @@ export default function Project1Page() {
         {...fadeInUp}
         className="w-full px-6 md:px-12 lg:px-20 py-24"
       >
-        <div className="max-w-2xl mb-12">
-          <h3 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
-            From configuration to presence
-          </h3>
-          <p className="text-lg text-slate-500 leading-relaxed">
-            The project was not only about configuring an AI character system, but about turning it into something people could actually see, hold, and interact with.
-          </p>
-        </div>
-
-        <div className="max-w-5xl flex flex-col gap-6">
-          <div className="rounded-[2rem] overflow-hidden border border-gray-100 bg-black aspect-[640/368]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-5">
+            <h3 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
+              From platform configuration to physical presence
+            </h3>
+            <p className="text-lg text-slate-500 leading-relaxed mb-5">
+              The platform was designed to shape more than an AI agent’s responses. It brought together knowledge, guardrails, personality, tone, voice, visual identity, and interaction behaviour into one configurable character system.
+            </p>
+            <p className="text-lg text-slate-500 leading-relaxed">
+              The physical mascot became the final touchpoint where those digital decisions turned into something people could actually see, hold, and interact with.
+            </p>
+          </div>
+          <div className="lg:col-span-7 rounded-[2rem] overflow-hidden border border-gray-100 bg-black aspect-[640/368]">
             <video
               src="/videos/mascot-demo.mp4"
               poster="/images/mascot-demo-poster.webp"
@@ -657,17 +659,17 @@ export default function Project1Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="grid grid-cols-3 gap-4 md:gap-6">
-            {[
-              { src: "/images/mascot-front.webp", alt: "Physical AI mascot, front view" },
-              { src: "/images/mascot-side.webp", alt: "Physical AI mascot, side view" },
-              { src: "/images/mascot-back.webp", alt: "Physical AI mascot, back view" },
-            ].map(({ src, alt }) => (
-              <div key={src} className="relative rounded-[1.25rem] md:rounded-[2rem] overflow-hidden bg-[#F4F7FB] aspect-[4/5]">
-                <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 330px, 30vw" className="object-contain p-2 md:p-4 mix-blend-multiply" />
-              </div>
-            ))}
-          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-3 md:gap-6 mt-6 md:mt-10">
+          {[
+            { src: "/images/mascot-front.webp", alt: "Physical AI mascot, front view" },
+            { src: "/images/mascot-side.webp", alt: "Physical AI mascot, side view" },
+            { src: "/images/mascot-back.webp", alt: "Physical AI mascot, back view" },
+          ].map(({ src, alt }) => (
+            <div key={src} className="relative rounded-[1.25rem] md:rounded-[2rem] overflow-hidden bg-[#F4F7FB] aspect-[3/4] md:aspect-[4/3]">
+              <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 400px, 30vw" className="object-contain p-3 md:p-6 mix-blend-multiply" />
+            </div>
+          ))}
         </div>
       </motion.section>
 

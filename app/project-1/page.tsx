@@ -630,37 +630,43 @@ export default function Project1Page() {
 
 
       {/* =========================================
-          PROVEN TRUST IMPACT
+          FROM CONFIGURATION TO PRESENCE
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32 flex flex-col md:flex-row justify-between items-center gap-16"
+        className="w-full px-6 md:px-12 lg:px-20 py-24"
       >
-        <div className="max-w-md">
+        <div className="max-w-2xl mb-12">
           <h3 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
-            Proven Trust Impact
+            From configuration to presence
           </h3>
           <p className="text-lg text-slate-500 leading-relaxed">
-            By prioritizing transparency, we successfully shifted user sentiment from skepticism to creative confidence.
+            The project was not only about configuring an AI character system, but about turning it into something people could actually see, hold, and interact with.
           </p>
         </div>
 
-        <div className="flex items-center gap-6 md:gap-12">
-          {/* Before */}
-          <div className="text-center">
-            <span className="text-6xl md:text-7xl font-serif font-light text-slate-300 block mb-2">35%</span>
-            <span className="text-[9px] font-bold tracking-widest text-slate-400 uppercase">BEFORE IMPLEMENTATION</span>
+        <div className="max-w-5xl flex flex-col gap-6">
+          <div className="rounded-[2rem] overflow-hidden border border-gray-100 bg-black aspect-[640/368]">
+            <video
+              src="/videos/mascot-demo.mp4"
+              poster="/images/mascot-demo-poster.webp"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </div>
-          
-          {/* Arrow */}
-          <svg className="w-8 h-8 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-
-          {/* After */}
-          <div className="text-center">
-            <span className="text-6xl md:text-7xl font-serif font-light text-blue-500 block mb-2">73%</span>
-            <span className="text-[9px] font-bold tracking-widest text-blue-500 uppercase">POST-LAUNCH TRUST INDEX</span>
+          <div className="grid grid-cols-3 gap-4 md:gap-6">
+            {[
+              { src: "/images/mascot-front.webp", alt: "Physical AI mascot, front view" },
+              { src: "/images/mascot-side.webp", alt: "Physical AI mascot, side view" },
+              { src: "/images/mascot-back.webp", alt: "Physical AI mascot, back view" },
+            ].map(({ src, alt }) => (
+              <div key={src} className="relative rounded-[1.25rem] md:rounded-[2rem] overflow-hidden bg-[#F4F7FB] aspect-[4/5]">
+                <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 330px, 30vw" className="object-contain p-2 md:p-4 mix-blend-multiply" />
+              </div>
+            ))}
           </div>
         </div>
       </motion.section>

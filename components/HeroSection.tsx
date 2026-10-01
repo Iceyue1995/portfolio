@@ -26,9 +26,9 @@ export default function HeroSection() {
           className="font-sans text-[clamp(1rem,1.5vw,1.15rem)] leading-relaxed
                      text-gray-500 max-w-2xl font-light"
         >
-          AI Product Designer specializing in LLM-powered platforms, RAG
-          architecture, and conversational UX. I bridge the gap between
-          cutting-edge AI technology and real user needs.
+          I design and build AI-native products from ambiguity to working
+          experience — turning complex AI capabilities into simple, trustworthy
+          products through rapid prototyping, user validation, and iteration.
         </motion.p>
       </div>
     </section>

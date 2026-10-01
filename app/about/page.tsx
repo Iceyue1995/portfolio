@@ -26,21 +26,20 @@ export default function AboutPage() {
       >
         <div className="lg:col-span-7">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 leading-[1.1] mb-10">
-            Designing at the intersection of <br />
-            <span className="text-blue-400 italic font-light tracking-tight">human intent</span> and <br />
-            AI capability.
+            Designing with{" "}
+            <span className="text-blue-400 italic font-light tracking-tight">judgment</span>
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed mb-6 max-w-xl">
-            Independent AI Design Consultant. I specialize in bridging the gap between complex algorithmic structures and intuitive human experiences.
+            AI is getting better at producing answers. The harder part is deciding what is actually worth building around them.
           </p>
           <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-            With a background spanning UX management and AI chatbot optimization, I focus on building LLM-powered interfaces and ethical frameworks that empower rather than replace human agency.
+            I’m increasingly focused on product judgment: identifying the real problem behind a request, deciding where AI genuinely adds value, designing for imperfect outputs, and knowing when not to automate. I build and test quickly, but I care just as much about what to remove, what to validate, and what users actually perceive as valuable.
           </p>
         </div>
         <div className="lg:col-span-5 relative">
           <div className="aspect-[4/5] bg-gray-200 rounded-[2rem] overflow-hidden relative shadow-2xl shadow-gray-200/50 border border-gray-100">
             <Image 
-              src="/images/yue-portrait.png" 
+              src="/images/portrait-bw.webp" 
               alt="Yue Yuwen - Portrait"
               fill
               className="object-cover object-center"

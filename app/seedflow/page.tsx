@@ -225,8 +225,9 @@ export default function SeedFlowPage() {
               {...fadeUp(0.15)}
               className="flex-1 flex items-center justify-center min-w-0"
             >
-              {/* 448×600 container matching Figma */}
-              <div className="relative w-full max-w-[448px] h-[600px]">
+              {/* 448×600 container matching Figma (scaled to fit on mobile) */}
+              <div className="relative max-md:w-[340px] max-md:h-[460px] md:max-lg:w-[300px] md:max-lg:h-[400px] lg:contents">
+              <div className="relative w-full max-w-[448px] h-[600px] max-lg:absolute max-lg:left-1/2 max-lg:top-0 max-lg:w-[448px] max-lg:-translate-x-1/2 max-lg:origin-top max-md:scale-[0.76] md:max-lg:scale-[0.66]">
 
                 {/* Back-left phone: -6deg, opacity-25 (lighter than front) */}
                 <div
@@ -268,6 +269,7 @@ export default function SeedFlowPage() {
                   </div>
                 </div>
 
+              </div>
               </div>
             </motion.div>
           </motion.div>

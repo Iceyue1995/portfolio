@@ -234,7 +234,7 @@ export default function SeedFlowPage() {
       <Header />
 
       {/* Outer container — matches Figma Main gap-[64px] */}
-      <div className="flex flex-col gap-14 md:gap-20 px-6 md:px-12 lg:px-20 py-10 md:py-16">
+      <div className="flex flex-col gap-14 md:gap-20 max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-16">
 
         {/* ── Hero + Metadata ───────────────────────────────────────────────── */}
         <div className="flex flex-col gap-8">

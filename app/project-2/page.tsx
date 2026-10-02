@@ -88,7 +88,7 @@ export default function Project2Page() {
       <Header />
 
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
-      <section className="w-full px-6 md:px-12 lg:px-20 pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pt-20 pb-16 md:pt-28 md:pb-20">
         <div className="max-w-5xl">
           <motion.p
             {...fadeUp(0)}
@@ -118,7 +118,7 @@ export default function Project2Page() {
       {/* ── Metadata grid ──────────────────────────────────────────────────── */}
       <motion.section
         {...fadeUp(0.3)}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <div className="w-full h-px bg-slate-200 mb-10" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6">
@@ -135,7 +135,7 @@ export default function Project2Page() {
       {/* ── The Challenge ──────────────────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUpFar}
-        className="w-full px-6 md:px-12 lg:px-20 pt-8 pb-32"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pt-8 pb-32"
       >
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 lg:gap-20 items-center">
           <div>
@@ -174,7 +174,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 1: The Challenge ───────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left: Text */}
@@ -229,7 +229,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 2: The Solution ────────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24 border-t border-b border-gray-100"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24 border-t border-b border-gray-100"
       >
         {/* Top: centered heading */}
         <div className="text-center mb-20">
@@ -259,7 +259,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 3: Dark Capabilities Block ────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24"
       >
         <div className="bg-[#18181B] rounded-[2.5rem] p-12 md:p-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
@@ -290,7 +290,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 4: Selecting the Architecture ─────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32"
       >
         <p className="text-[11px] font-semibold tracking-[0.18em] text-blue-500 uppercase mb-14">
           Selecting the Architecture
@@ -344,7 +344,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 5: The Visual Flow Builder ────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32 border-t border-gray-100"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32 border-t border-gray-100"
       >
         <p className="text-[11px] font-semibold tracking-[0.18em] text-blue-500 uppercase mb-6">
           The Solution V1.0
@@ -385,7 +385,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 6: Evolution Timeline ─────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32 border-t border-gray-100"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32 border-t border-gray-100"
       >
         <p className="text-[11px] font-semibold tracking-[0.18em] text-blue-500 uppercase text-center mb-20">
           Evolution Timeline
@@ -421,7 +421,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Section 7: Impact & Scale ──────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32 border-t border-gray-100"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32 border-t border-gray-100"
       >
         <p className="text-[11px] font-semibold tracking-[0.18em] text-blue-500 uppercase text-center mb-10">
           Impact &amp; Scale
@@ -456,7 +456,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Hitting the Performance Wall ───────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24"
       >
         <div className="bg-[#4A90E2] rounded-[2.5rem] p-12 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
@@ -497,7 +497,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Target Audience ────────────────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24 bg-slate-50"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24 bg-slate-50"
       >
         <p className="text-[10px] font-bold tracking-[0.2em] text-orange-500 uppercase mb-5">
           Core Users
@@ -611,7 +611,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Diagnostic Framework ───────────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24"
       >
         <p className="text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase mb-5">
           Framework
@@ -669,7 +669,7 @@ remaining simple enough for local operators.            </p>
       {/* ── The Solution Strategy ──────────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24"
       >
         <div className="bg-[#18181B] rounded-[2.5rem] p-12 md:p-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
@@ -722,7 +722,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Design for Every Skill Level ──────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32"
       >
         {/* Centered heading */}
         <div className="text-center mb-24">
@@ -778,7 +778,7 @@ remaining simple enough for local operators.            </p>
         className="w-full bg-[#18181B] text-white"
       >
         {/* Before & After */}
-        <div className="px-6 md:px-12 lg:px-20 py-32">
+        <div className="px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32">
           <div className="text-center mb-20">
             <p className="text-[10px] font-bold tracking-[0.2em] text-orange-400 uppercase mb-5">
               Reducing Cognitive Load
@@ -815,7 +815,7 @@ remaining simple enough for local operators.            </p>
         <div className="w-full h-px bg-white/5" />
 
         {/* Final Impact */}
-        <div className="px-6 md:px-12 lg:px-20 py-32">
+        <div className="px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32">
           <div className="text-center mb-20">
             <p className="text-[10px] font-bold tracking-[0.2em] text-orange-400 uppercase mb-5">
               The Business Impact
@@ -858,7 +858,7 @@ remaining simple enough for local operators.            </p>
       {/* ── Reflection ─────────────────────────────────────────────────────── */}
       <motion.section
         {...scrollFadeUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-32 bg-slate-50"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-32 bg-slate-50"
       >
         <div className="max-w-3xl mx-auto">
           <p className="text-[10px] font-bold tracking-[0.2em] text-blue-500 uppercase mb-6">

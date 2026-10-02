@@ -4,7 +4,7 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="w-full px-6 md:px-12 lg:px-20 pt-32 pb-12">
+    <footer className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pt-32 pb-12">
       {/* Top row */}
       <div className="flex flex-col sm:flex-row justify-between gap-4 mb-10">
         <p className="text-[11px] font-medium tracking-[0.14em] text-gray-400 uppercase">

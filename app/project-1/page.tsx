@@ -109,7 +109,7 @@ export default function Project1Page() {
     <Header />
 
       {/* ── Hero ─────────────────────────────────────────────────── */}
-      <section className="w-full px-6 md:px-12 lg:px-20 pt-20 pb-16 md:pt-28 md:pb-20">
+      <section className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pt-20 pb-16 md:pt-28 md:pb-20">
         <div className="max-w-5xl">
           {/* Overline */}
           <motion.p
@@ -145,7 +145,7 @@ export default function Project1Page() {
       {/* ── Metadata grid ────────────────────────────────────────── */}
       <motion.section
         {...fadeUp(0.3)}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <div className="w-full h-px bg-gray-100 mb-10" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6">
@@ -166,7 +166,7 @@ export default function Project1Page() {
       {/* ── Metrics cards ─────────────────────────────────────────── */}
       <motion.section
         {...fadeUp(0.4)}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {metrics.map(({ stat, description }) => (
@@ -193,7 +193,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-16"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-16"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-5">
@@ -227,7 +227,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <div className="mb-10">
           <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase block mb-6">THE CHALLENGE</span>
@@ -304,7 +304,7 @@ export default function Project1Page() {
       {/* ── My Role ───────────────────────────────────────────────── */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <div className="mb-10">
           <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase block mb-6">MY ROLE</span>
@@ -331,7 +331,7 @@ export default function Project1Page() {
       {/* ── My Approach ───────────────────────────────────────────── */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <div className="mb-10">
           <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase block mb-6">MY APPROACH</span>
@@ -431,7 +431,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <h2 className="font-serif font-normal text-[clamp(1.5rem,3vw,2.25rem)]
                        leading-[1.15] tracking-[-0.02em] text-gray-900 mb-12">
@@ -532,7 +532,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"
       >
         <p className="text-[11px] font-semibold tracking-[0.18em] text-[#3B82F6] uppercase mb-7">
           The Solution
@@ -549,7 +549,7 @@ export default function Project1Page() {
         </div>
       </motion.section>
       {/* Strategy 01 核心内容插入 */}
-      <div className="w-full px-6 md:px-12 lg:px-20 pb-20"> {/* 确保内容在灰色数字上方 */}
+      <div className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pb-20"> {/* 确保内容在灰色数字上方 */}
           
           {/* 1. 插入蓝色胶囊标签 */}
           <div className="inline-block px-3 py-1 bg-[#4A86E8] text-white rounded-full text-[10px] font-bold tracking-widest uppercase mb-8 shadow-sm">
@@ -574,7 +574,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-8 mb-16"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] mt-8 mb-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Text */}
@@ -605,7 +605,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-8 mb-16"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] mt-8 mb-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Step 02 image */}
@@ -637,7 +637,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-16 mb-32"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] mt-16 mb-32"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Text */}
@@ -666,7 +666,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-8 mb-16"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] mt-8 mb-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Step 04 image */}
@@ -694,7 +694,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-16"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-16"
       >
         <div className="mb-12">
           <div className="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 shadow-sm">
@@ -786,7 +786,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
         <div>
           <div className="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 shadow-sm">
@@ -811,7 +811,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-8"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-8"
       >
         <div className="bg-[#EBF2F9] rounded-[2rem] p-8 md:p-16 aspect-video relative overflow-hidden flex items-center justify-center">
             {/* 这里的图片你需要丢进 public/images/ 里面 */}
@@ -825,7 +825,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 pt-8 pb-16"
+        className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] pt-8 pb-16"
       >
         <div className="grid grid-cols-3 gap-3 md:gap-6">
           {[

@@ -43,7 +43,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="relative w-full px-6 md:px-12 lg:px-20 py-5 flex items-center justify-between">
+    <header className="relative w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-5 flex items-center justify-between">
       {/* ── Logo ── */}
       <Link
         href="/"

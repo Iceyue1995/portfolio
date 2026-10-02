@@ -29,7 +29,7 @@ const pillars = [
 
 export default function IntroSection() {
   return (
-    <section className="w-full px-6 md:px-12 lg:px-20 py-24 md:py-32">
+    <section className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] py-24 md:py-32">
       <div className="w-full h-px bg-gray-100 mb-24" />
 
       <div className="flex flex-col md:flex-row gap-16 md:gap-12 lg:gap-20">

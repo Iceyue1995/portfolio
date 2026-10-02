@@ -95,7 +95,7 @@ function ImageCol({ image, imageAlt }: { image: string; imageAlt: string }) {
 
 export default function SelectedWork() {
   return (
-    <section className="w-full px-6 md:px-12 lg:px-20 mt-32 pb-24">
+    <section className="w-full px-6 md:px-12 lg:px-[max(3rem,calc((100vw_-_1280px)/2_+_3rem))] mt-32 pb-24">
       <motion.p
         {...scrollFadeUp(0)}
         className="text-[11px] font-semibold tracking-[0.18em] text-[#3B82F6] uppercase mb-20"

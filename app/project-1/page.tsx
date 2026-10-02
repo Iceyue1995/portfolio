@@ -127,6 +127,39 @@ export default function Project1Page() {
           ))}
         </div>
       </motion.section>
+      {/* =========================================
+          FROM CONFIGURATION TO PRESENCE
+      ========================================= */}
+      <motion.section
+        {...fadeInUp}
+        className="w-full px-6 md:px-12 lg:px-20 py-24"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-5">
+            <h3 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
+              From platform configuration to physical presence
+            </h3>
+            <p className="text-lg text-slate-500 leading-relaxed mb-5">
+              The platform was designed to shape more than an AI agent’s responses. It brought together knowledge, guardrails, personality, tone, voice, visual identity, and interaction behaviour into one configurable character system.
+            </p>
+            <p className="text-lg text-slate-500 leading-relaxed">
+              The physical mascot became the final touchpoint where those digital decisions turned into something people could actually see, hold, and interact with.
+            </p>
+          </div>
+          <div className="lg:col-span-7 rounded-[2rem] overflow-hidden border border-gray-100 bg-black aspect-[640/368]">
+            <video
+              src="/videos/mascot-demo.mp4"
+              poster="/images/mascot-demo-poster.webp"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </motion.section>
+
    {/* --- The Challenge: Convergence Chasm (100% Design Match) --- */}
    <motion.section 
         initial={{ opacity: 0, y: 30 }}
@@ -630,37 +663,13 @@ export default function Project1Page() {
 
 
       {/* =========================================
-          FROM CONFIGURATION TO PRESENCE
+          PHYSICAL MASCOT — FRONT / SIDE / BACK
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-20 pt-12 pb-24"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-5">
-            <h3 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
-              From platform configuration to physical presence
-            </h3>
-            <p className="text-lg text-slate-500 leading-relaxed mb-5">
-              The platform was designed to shape more than an AI agent’s responses. It brought together knowledge, guardrails, personality, tone, voice, visual identity, and interaction behaviour into one configurable character system.
-            </p>
-            <p className="text-lg text-slate-500 leading-relaxed">
-              The physical mascot became the final touchpoint where those digital decisions turned into something people could actually see, hold, and interact with.
-            </p>
-          </div>
-          <div className="lg:col-span-7 rounded-[2rem] overflow-hidden border border-gray-100 bg-black aspect-[640/368]">
-            <video
-              src="/videos/mascot-demo.mp4"
-              poster="/images/mascot-demo-poster.webp"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-3 md:gap-6 mt-6 md:mt-10">
+        <div className="grid grid-cols-3 gap-3 md:gap-6">
           {[
             { src: "/images/mascot-front.webp", alt: "Physical AI mascot, front view" },
             { src: "/images/mascot-side.webp", alt: "Physical AI mascot, side view" },

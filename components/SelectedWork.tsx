@@ -15,7 +15,7 @@ const projects = [
   {
     number: "01",
     title: "AI Agent Platform",
-    tags: "UX/UI  •  CONVERSATIONAL DESIGN  •  2024",
+    tags: "UX/UI  •  CONVERSATIONAL DESIGN  •  2025",
     image: "/project-1.png",
     imageAlt: "AI Agent Platform project screenshot",
     imageLeft: false,
@@ -37,7 +37,7 @@ const projects = [
   {
     number: "03",
     title: "Shopee AI Chatbot Builder",
-    tags: "AI COMMERCE  •  PRODUCT DESIGN  •  2024",
+    tags: "AI COMMERCE  •  PRODUCT DESIGN  •  2022",
     image: "/project-2.png",
     imageAlt: "Shopee AI Chatbot Builder project screenshot",
     imageLeft: false,

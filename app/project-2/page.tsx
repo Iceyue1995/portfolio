@@ -36,7 +36,7 @@ const scrollFadeUpFar = {
 
 const metadata = [
   { label: "Role",         value: "Lead Product Designer" },
-  { label: "Timeline",     value: "2022 – 2023"           },
+  { label: "Timeline",     value: "2022"                },
   { label: "Context",      value: "eCommerce / AI"         },
   { label: "Deliverables", value: "End-to-end UX/UI"       },
 ];

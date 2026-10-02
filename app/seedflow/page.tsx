@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Manrope } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -91,7 +92,7 @@ const decisions = [
 // ── Phase 02 data ─────────────────────────────────────────────────────────────
 const phase2Research = [
   "User conversations",
-  "52 business accounts analysed",
+  "52 Xiaohongshu business accounts analysed",
   "Public account and content patterns",
   "Manual validation with real business cases",
 ];
@@ -109,6 +110,18 @@ const phase2Decisions = [
     title: "Finished content, not just ideas",
     desc: "Each output includes full copy, hashtags, shooting guidance, and the reasoning behind the recommendation.",
   },
+];
+
+const turningFindings = [
+  "AI-generated copy still felt generic.",
+  "Image-to-copy generation alone was not a defensible product value.",
+];
+
+const realProblemFindings = [
+  "Inactive or abandoned accounts",
+  "Incomplete business and profile information",
+  "Inconsistent publishing",
+  "Weak understanding of what content fits their business",
 ];
 
 const notBuilt = [
@@ -163,6 +176,57 @@ function Shot({
 const frameClass =
   "relative w-full rounded-[32px] border border-[rgba(207,196,197,0.3)] bg-[#fcf9f4] overflow-hidden";
 
+// ── Early product screens: three equal screens, staggered reveal + gentle depth on scroll ──
+const earlyScreens = [
+  { src: "/images/sf-early-landing.webp", h: 1571, alt: "Early SeedFlow screen: landing page, Let your assets grow into content" },
+  { src: "/images/sf-early-upload.webp", h: 1558, alt: "Early SeedFlow screen: upload screenshots so SeedFlow can understand your account" },
+  { src: "/images/sf-early-output-v2.webp", h: 1563, alt: "Early SeedFlow screen: Today's best seed is ready, with a recommended topic, match score and Generate Post Package" },
+];
+
+function EarlyScreens() {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const [wide, setWide] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(min-width: 768px)");
+    const update = () => setWide(m.matches);
+    update();
+    m.addEventListener("change", update);
+    return () => m.removeEventListener("change", update);
+  }, []);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const animate = wide && !reduced;
+  const y0 = useTransform(scrollYProgress, [0, 1], [14, -14]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [28, -28]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [14, -14]);
+  const ys = [y0, y1, y2];
+
+  return (
+    <div
+      ref={ref}
+      className="flex gap-4 md:gap-10 lg:gap-12 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:justify-center py-6 md:py-10 [scrollbar-width:none]"
+    >
+      {earlyScreens.map(({ src, h, alt }, i) => (
+        <motion.div
+          key={src}
+          initial={reduced ? false : { opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: i * 0.14 }}
+          className={`shrink-0 snap-center w-[62%] md:w-[200px] lg:w-[220px]`}
+        >
+          <motion.div
+            style={{ y: animate ? ys[i] : 0 }}
+            className="rounded-[26px] md:rounded-[30px] border border-[rgba(207,196,197,0.5)] bg-[#fcf9f4] overflow-hidden shadow-[0px_16px_40px_-24px_rgba(0,0,0,0.18)]"
+          >
+            <Image src={src} alt={alt} width={720} height={h} sizes="(min-width: 1024px) 220px, (min-width: 768px) 200px, 62vw" className="w-full h-auto block" />
+          </motion.div>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function SeedFlowPage() {
   return (
@@ -170,7 +234,7 @@ export default function SeedFlowPage() {
       <Header />
 
       {/* Outer container — matches Figma Main gap-[64px] */}
-      <div className="flex flex-col gap-16 px-6 md:px-12 lg:px-20 py-14">
+      <div className="flex flex-col gap-14 md:gap-20 px-6 md:px-12 lg:px-20 py-10 md:py-16">
 
         {/* ── Hero + Metadata ───────────────────────────────────────────────── */}
         <div className="flex flex-col gap-8">
@@ -178,7 +242,7 @@ export default function SeedFlowPage() {
           {/* Hero Section — Figma: h-832px, py-100px, gap-64px */}
           <motion.div
             className="flex flex-col md:flex-row gap-16 items-center"
-            style={{ paddingTop: 'clamp(40px, 8vw, 100px)', paddingBottom: 'clamp(40px, 8vw, 100px)', minHeight: 'clamp(500px, 65vw, 832px)' }}
+            style={{ paddingTop: 'clamp(24px, 4vw, 56px)', paddingBottom: 'clamp(24px, 4vw, 56px)', minHeight: 'clamp(380px, 44vw, 600px)' }}
           >
             {/* Left */}
             <div className="flex-1 flex flex-col gap-8 min-w-0">
@@ -198,13 +262,16 @@ export default function SeedFlowPage() {
                 SeedFlow
               </motion.h1>
 
-              <motion.p
-                {...fadeUp(0.2)}
-                className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[403px]"
-              >
-                SeedFlow bridges the gap between raw creative assets and viral social content
-                by understanding the creator&rsquo;s unique DNA.
-              </motion.p>
+              <motion.div {...fadeUp(0.2)} className="flex flex-col gap-4 max-w-[480px]">
+                <p className="text-[20px] font-semibold leading-[1.4] text-[#101e18]">
+                  AI growth workflow for Xiaohongshu small businesses
+                </p>
+                <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+                  SeedFlow started as an AI content assistant and evolved, through real-world validation, into a
+                  focused workflow for diagnosing account gaps, deciding what to publish, and helping small
+                  businesses create more actionable content.
+                </p>
+              </motion.div>
 
               <motion.div {...fadeUp(0.3)}>
                 <a
@@ -290,34 +357,122 @@ export default function SeedFlowPage() {
           </motion.div>
         </div>
 
-        {/* ── Section 1: The Problem ────────────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pt-16">
+        {/* ── Section 1: The opportunity ────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8">
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
-            Creating consistently is harder than generating text
+            The opportunity
           </h2>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 max-w-[672px]">
             <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
-              The primary barrier for creators isn&rsquo;t a lack of tools, but a lack of clarity. Creators constantly
-              struggle with three core questions:{" "}
-              <strong className="font-bold">&ldquo;What should I post?&rdquo;</strong>,{" "}
-              <strong className="font-bold">&ldquo;How do I express this in my own voice?&rdquo;</strong>
-              , and{" "}
-              <strong className="font-bold">&ldquo;What actually works on Xiaohongshu?&rdquo;</strong>
+              SeedFlow started from an observation: Xiaohongshu was increasingly used beyond China, including by
+              users and businesses in Southeast Asia, but language, cultural context, and platform conventions
+              created a real barrier to participation.
             </p>
             <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
-              Generic AI models often fail here. They produce generic, sterile copy that lacks the specific
-              &lsquo;vibe&rsquo; and visual language required to resonate with a niche audience. They don&rsquo;t
-              understand the context of an individual&rsquo;s account history or their unique aesthetic positioning.
+              The initial question was:
             </p>
+            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+              &ldquo;How might AI help non-native Xiaohongshu users create content that actually fits the platform?&rdquo;
+            </p>
+          </div>
+
+          {/* Conceptual diagram — abstract, not data */}
+          <div
+            role="img"
+            aria-label="Conceptual diagram: small-business interest and context passes through friction (language, cultural context, platform conventions) to become Xiaohongshu-ready content"
+            className="bg-[#fcf9f4] border border-[rgba(207,196,197,0.3)] rounded-[32px] p-6 md:p-8 max-w-[760px]"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto_1fr] items-center gap-4 md:gap-5">
+              {/* Left — interest / business context */}
+              <div className="flex flex-col gap-3">
+                <p className="text-[#4c4546] text-[12px] font-medium tracking-[0.1em] uppercase">
+                  Interest / business context
+                </p>
+                <div className="flex flex-row md:flex-col gap-3">
+                {["rounded-full", "rounded-lg", "rounded-full"].map((shape, i) => (
+                  <div
+                    key={i}
+                    className={`flex items-center gap-3 bg-white border border-[rgba(207,196,197,0.5)] rounded-2xl px-4 py-3 max-md:flex-1 max-md:justify-center max-md:px-3`}
+                  >
+                    <span className={`w-8 h-8 ${shape} bg-[rgba(207,196,197,0.45)] shrink-0`} />
+                    <div className="flex flex-col gap-[6px] flex-1 max-md:hidden">
+                      <span className="h-[6px] w-[70%] rounded-full bg-[rgba(207,196,197,0.7)]" />
+                      <span className="h-[6px] w-[45%] rounded-full bg-[rgba(207,196,197,0.4)]" />
+                    </div>
+                  </div>
+                ))}
+                </div>
+              </div>
+
+              <span aria-hidden="true" className="text-[#848484] text-[20px] leading-none justify-self-center rotate-90 md:rotate-0">→</span>
+
+              {/* Center — friction */}
+              <div className="flex flex-col items-center md:items-stretch gap-3">
+                <p className="text-[#4c4546] text-[12px] font-medium tracking-[0.1em] uppercase text-center">
+                  Friction
+                </p>
+                <div className="flex flex-wrap justify-center md:flex-col md:items-stretch gap-2 md:gap-3">
+                {["Language", "Cultural context", "Platform conventions"].map((label) => (
+                  <span
+                    key={label}
+                    className="inline-flex items-center gap-2 bg-white border border-dashed border-blue-400/60 rounded-full px-4 py-2 text-[13px] font-medium text-[#101e18] whitespace-nowrap"
+                  >
+                    <span className="w-[6px] h-[6px] rounded-full bg-blue-400 shrink-0" />
+                    {label}
+                  </span>
+                ))}
+                </div>
+              </div>
+
+              <span aria-hidden="true" className="text-[#848484] text-[20px] leading-none justify-self-center rotate-90 md:rotate-0">→</span>
+
+              {/* Right — platform-ready expression */}
+              <div className="flex flex-col gap-3">
+                <p className="text-[#4c4546] text-[12px] font-medium tracking-[0.1em] uppercase">
+                  Platform-ready expression
+                </p>
+                <div className="bg-white border border-blue-400/60 rounded-2xl p-4 flex flex-col gap-3">
+                  <span className="h-[48px] md:h-[64px] rounded-xl bg-[rgba(207,196,197,0.35)]" />
+                  <p className="text-[14px] font-semibold leading-[1.3] text-[#101e18]">
+                    Xiaohongshu-ready content
+                  </p>
+                  <div className="flex flex-col gap-[6px]">
+                    <span className="h-[6px] w-[85%] rounded-full bg-[rgba(207,196,197,0.7)]" />
+                    <span className="h-[6px] w-[60%] rounded-full bg-[rgba(207,196,197,0.4)]" />
+                  </div>
+                  <div className="flex gap-2">
+                    <span className="h-[14px] w-9 rounded-full bg-blue-400/20" />
+                    <span className="h-[14px] w-12 rounded-full bg-blue-400/20" />
+                    <span className="h-[14px] w-8 rounded-full bg-blue-400/20" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.section>
 
         {/* ── Section 2: Product Experience ────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pt-16">
-          {/* Centred heading */}
-          <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] text-center">
-            From account understanding to a publish-ready post
-          </h2>
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8">
+          {/* Header copy + three equal early screens */}
+          <div className="flex flex-col items-center text-center gap-3 max-w-[672px] mx-auto">
+            <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+              First hypothesis
+            </h2>
+            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+              Upload image → understand visual context → generate Xiaohongshu-ready content
+            </p>
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              The first version focused on helping users turn images into more platform-appropriate content
+              without starting from a blank prompt.
+            </p>
+          </div>
+
+          <div>
+            <EarlyScreens />
+            <p className="text-[14px] font-normal leading-[1.5] text-[#7e7576] text-center">
+              Early hypothesis: turn assets and account context into platform-ready content.
+            </p>
+          </div>
 
           {/* 3-step cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[rgba(207,196,197,0.2)] rounded-2xl overflow-hidden">
@@ -337,7 +492,7 @@ export default function SeedFlowPage() {
           </div>
 
           {/* Core flow */}
-          <div className="flex flex-col gap-8 max-w-[672px] pt-8">
+          <div className="flex flex-col gap-8 max-w-[672px] mx-auto pt-4">
             {/* THE CORE FLOW label */}
             <div className="flex items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -382,10 +537,10 @@ export default function SeedFlowPage() {
         {/* ── Section 3: Key Product Decisions ─────────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
+          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-12"
         >
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
-            Key Product Decisions
+            Design principles of the first release
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
             {decisions.map(({ title, desc }) => (
@@ -399,14 +554,10 @@ export default function SeedFlowPage() {
 
         {/* ── Section 4: Current Status ─────────────────────────────────────── */}
         <motion.section {...scrollFadeUp}>
-          <div className="bg-[#fcf9f4] rounded-[32px] p-10 md:p-16 flex flex-col md:flex-row items-center gap-12">
+          <div className="bg-[#fcf9f4] rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
             {/* Left */}
             <div className="flex-1 flex flex-col gap-2">
-              {/* PHASE 01 badge */}
-              <div className="self-start bg-black text-white text-[12px] font-medium tracking-[0.1em] uppercase px-3 py-1 rounded-full mb-2">
-                PHASE 01
-              </div>
-              <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] mt-2">
+              <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
                 Building and validating the first release
               </h2>
               <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[576px] mt-2">
@@ -417,7 +568,7 @@ export default function SeedFlowPage() {
             </div>
 
             {/* Right — frosted circle with leaf */}
-            <div className="shrink-0 w-[178px] h-[178px] rounded-full bg-[rgba(255,255,255,0.5)] border border-white backdrop-blur-[2px] flex items-center justify-center">
+            <div className="shrink-0 w-[120px] h-[120px] rounded-full bg-[rgba(255,255,255,0.5)] border border-white backdrop-blur-[2px] flex items-center justify-center">
               <div className="relative w-[45px] h-[45px]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/images/sf-icon-leaf.svg" alt="SeedFlow" className="w-full h-full" />
@@ -427,26 +578,38 @@ export default function SeedFlowPage() {
           </div>
         </motion.section>
 
-        {/* ── Phase 02 · 1: What changed after validation ───────────────────── */}
-        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pt-16">
-          <div className="flex flex-col gap-2">
-            <div className="self-start bg-black text-white text-[12px] font-medium tracking-[0.1em] uppercase px-3 py-1 rounded-full mb-2">
-              PHASE 02
-            </div>
-            <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] mt-2">
-              What changed after validation
+        {/* ── Turning point ─────────────────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp}>
+          <div className="bg-black rounded-[32px] p-8 md:p-12 flex flex-col gap-8 text-white">
+            <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-white">
+              The question that changed the product
             </h2>
-          </div>
-          <div className="flex flex-col gap-4 max-w-[672px]">
-            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
-              The first release showed that content generation was only part of the problem.
+            <p className="text-[clamp(1.75rem,3.5vw,2.75rem)] font-bold leading-[1.15] tracking-[-0.02em] max-w-[760px]">
+              &ldquo;If Doubao, ChatGPT, or Gemini can do this too, why should SeedFlow exist?&rdquo;
             </p>
-            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
-              Through user feedback, account analysis, and observation of Xiaohongshu small-business accounts,
-              I found a broader challenge: many owners struggled to publish consistently, present their business
-              clearly, and turn content into something that could support business outcomes.
+            <div className="grid grid-cols-1 md:grid-cols-2 border-t border-white/20">
+              {turningFindings.map((item) => (
+                <p key={item} className="text-[18px] font-semibold leading-[1.6] py-4 border-b border-white/20 md:pr-8">
+                  {item}
+                </p>
+              ))}
+            </div>
+            <p className="text-[18px] font-normal leading-[1.6] text-white/70 max-w-[672px]">
+              That forced me to step back from improving generation quality and question whether generation
+              itself was the right product.
             </p>
           </div>
+        </motion.section>
+
+        {/* ── Back to the market ────────────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8">
+          <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+            Back to the market
+          </h2>
+          <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[672px]">
+            Instead of adding more AI features, I went back to the market to understand why small businesses
+            were struggling with Xiaohongshu in the first place.
+          </p>
           <div className="border-t border-[rgba(207,196,197,0.3)] pt-8 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8">
             {phase2Research.map((item) => (
               <p key={item} className="text-[#101e18] text-[16px] font-normal leading-[24px]">{item}</p>
@@ -540,24 +703,38 @@ export default function SeedFlowPage() {
           </div>
         </motion.section>
 
-        {/* ── Phase 02 · 2: Reframing SeedFlow ──────────────────────────────── */}
+        {/* ── The real problem ──────────────────────────────────────────────── */}
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8">
+          <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
+            The real problem
+          </h2>
+          <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18] max-w-[672px]">
+            &ldquo;Small businesses didn&rsquo;t need more generated content. They needed to know what to fix,
+            what to publish, and how to keep going.&rdquo;
+          </p>
+          <div className="border-t border-[rgba(207,196,197,0.3)] pt-8 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8">
+            {realProblemFindings.map((item) => (
+              <p key={item} className="text-[#101e18] text-[16px] font-normal leading-[24px]">{item}</p>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* ── Reframing SeedFlow ──────────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col md:flex-row gap-12 md:gap-16 items-center pt-16"
+          className="flex flex-col md:flex-row gap-10 md:gap-16 items-center"
         >
           <div className="flex-1 flex flex-col gap-6 min-w-0">
             <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
-              From content assistant to growth workflow
+              Reframing SeedFlow
             </h2>
-            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[576px]">
-              SeedFlow evolved into an AI-assisted workflow for Xiaohongshu small businesses:
-            </p>
             <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
-              Diagnose → Generate → Publish
+              Diagnose → Decide → Create → Publish
             </p>
             <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[576px]">
-              The final MVP focused on identifying account gaps, generating context-aware content, and helping
-              owners move from recommendation to actual publishing.
+              SeedFlow evolved from a content-generation tool into a growth co-pilot that helps a business
+              understand its account, identify the next priority, create actionable content, and move toward
+              consistent publishing.
             </p>
           </div>
           <div className="flex-1 w-full min-w-0">
@@ -566,7 +743,7 @@ export default function SeedFlowPage() {
                 alt="Diagnose, generate, publish: the SeedFlow workflow"
                 sizes="(min-width: 768px) 40vw, 90vw" className="object-cover" />
             </div>
-            <p className="mt-3 text-[12px] font-normal leading-[1.5] text-[#7e7576]">
+            <p className="mt-3 text-[14px] font-normal leading-[1.5] text-[#7e7576]">
               The SeedFlow workflow, built for Xiaohongshu small-business users.
             </p>
           </div>
@@ -575,10 +752,10 @@ export default function SeedFlowPage() {
         {/* ── Phase 02 · 3: Key Product Decisions ───────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
+          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-12"
         >
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
-            Phase 02 decisions
+            Decisions that shaped the MVP
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
             {phase2Decisions.map(({ title, desc }) => (
@@ -588,28 +765,28 @@ export default function SeedFlowPage() {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+          <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 pt-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory">
             {/* Diagnose before generating */}
-            <div className={`${frameClass} aspect-[3/4]`}>
+            <div className={`${frameClass} aspect-[4/5] shrink-0 w-[72%] md:w-auto snap-center`}>
               <Shot src="/images/sf3-upload.webp" w={780} h={1205} alt="Final MVP: homepage diagnosis and screenshot upload"
-                style={{ left: "50%", top: "50%", height: "80%", transform: "translate(-50%, -50%)" }} />
+                style={{ left: "50%", top: "50%", height: "88%", transform: "translate(-50%, -50%)" }} />
             </div>
             {/* Different strategies for different account states */}
-            <div className={`${frameClass} aspect-[3/4]`}>
+            <div className={`${frameClass} aspect-[4/5] shrink-0 w-[72%] md:w-auto snap-center`}>
               <Shot src="/images/sf3-state-cards.webp" w={738} h={1050} alt="Final MVP: choose between reviving an existing account and launching a new one"
-                style={{ left: "50%", top: "50%", height: "80%", transform: "translate(-50%, -50%)" }} />
+                style={{ left: "50%", top: "50%", height: "88%", transform: "translate(-50%, -50%)" }} />
             </div>
             {/* Finished content, not just ideas */}
-            <div className={`${frameClass} aspect-[3/4]`}>
+            <div className={`${frameClass} aspect-[4/5] shrink-0 w-[72%] md:w-auto snap-center`}>
               <Shot src="/images/sf-output-post-en.webp" w={692} h={1096} alt="Final MVP: finished post with title, copy and hashtags"
-                style={{ left: "50%", top: "50%", height: "80%", transform: "translate(-50%, -50%)" }} />
+                style={{ left: "50%", top: "50%", height: "88%", transform: "translate(-50%, -50%)" }} />
             </div>
           </div>
         </motion.section>
 
         {/* ── Phase 02 · 4: MVP scope ───────────────────────────────────────── */}
         <motion.section {...scrollFadeUp}>
-          <div className="bg-[#fcf9f4] rounded-[32px] p-10 md:p-16 flex flex-col gap-8">
+          <div className="bg-[#fcf9f4] rounded-[32px] p-8 md:p-12 flex flex-col gap-8">
             <div className="flex flex-col gap-2">
               <div className="self-start bg-black text-white text-[12px] font-medium tracking-[0.1em] uppercase px-3 py-1 rounded-full mb-2">
                 MVP SCOPE
@@ -622,7 +799,7 @@ export default function SeedFlowPage() {
               {notBuilt.map((item) => (
                 <p
                   key={item}
-                  className="text-[18px] font-semibold leading-[1.6] text-[#101e18] py-5 border-b border-[rgba(207,196,197,0.3)]"
+                  className="text-[18px] font-semibold leading-[1.6] text-[#101e18] py-4 border-b border-[rgba(207,196,197,0.3)]"
                 >
                   {item}
                 </p>
@@ -637,7 +814,7 @@ export default function SeedFlowPage() {
         {/* ── Phase 02 · 5: What success means ──────────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
+          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-12"
         >
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
             What success means
@@ -653,17 +830,22 @@ export default function SeedFlowPage() {
         </motion.section>
 
         {/* ── Phase 02 · 6: Reflection ──────────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pt-8 pb-8">
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-8 pb-4">
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
             What I learned
           </h2>
           <div className="flex flex-col gap-4 max-w-[672px]">
-            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
-              SeedFlow started as a content-generation product. It became stronger when I stopped asking what
-              else AI could generate, and started asking what behaviour the product needed to change.
+            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+              &ldquo;The biggest shift wasn&rsquo;t improving the AI output. It was realizing that generation itself
+              wasn&rsquo;t the product.&rdquo;
             </p>
-            <p className="text-[18px] font-bold leading-[1.6] text-[#101e18]">
-              The biggest shift was not visual. It was redefining the product problem.
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              The real value came from judgment — understanding the business context, identifying what mattered
+              next, and turning AI into an actionable workflow.
+            </p>
+            <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
+              SeedFlow became stronger when I stopped asking what else AI could generate, and started asking
+              what behaviour the product needed to change.
             </p>
           </div>
         </motion.section>

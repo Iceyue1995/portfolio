@@ -21,7 +21,7 @@ const fadeUp = (delay = 0) => ({
 // ── Data ──────────────────────────────────────────────────────────────────────
 const metadata = [
   { label: "Role", value: "Product Designer" },
-  { label: "Timeline", value: "2024 – 2025" },
+  { label: "Timeline", value: "2025" },
   { label: "Project Type", value: "AI & B2B Saas" },
   { label: "Deliverables", value: "End-to-end UX/UI" },
 ];

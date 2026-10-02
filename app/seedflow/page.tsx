@@ -586,17 +586,29 @@ export default function SeedFlowPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {[
-                "Wow, this is great. I used to do this with ChatGPT. Your product is more convenient.",
-                "The copy is so well written.",
-                "It would be even better if the copy could be refined to feel less like AI...",
-              ].map((quote) => (
-                <figure
-                  key={quote}
-                  className="border border-[rgba(207,196,197,0.3)] rounded-2xl p-6 md:p-8"
-                >
-                  <blockquote className="text-[18px] font-semibold leading-[1.6] text-[#101e18]">
-                    &ldquo;{quote}&rdquo;
-                  </blockquote>
+                { quote: "Wow, this is great. I used to do this with ChatGPT. Your product is more convenient.", tone: "bg-[#fdeee8]" },
+                { quote: "The copy is so well written.", tone: "bg-[#e9f1fb]" },
+                { quote: "It would be even better if the copy could be refined to feel less like AI...", tone: "bg-[#eef5ea]" },
+              ].map(({ quote, tone }) => (
+                <figure key={quote} className="flex flex-col gap-4">
+                  {/* Speech bubble */}
+                  <div className="relative flex-1 bg-white border border-[rgba(207,196,197,0.4)] rounded-[24px] rounded-bl-[6px] px-6 py-5 shadow-[0_6px_20px_-12px_rgba(16,30,24,0.18)]">
+                    <blockquote className="text-[16px] md:text-[17px] font-medium leading-[1.55] text-[#101e18]">
+                      {quote}
+                    </blockquote>
+                  </div>
+                  {/* Avatar */}
+                  <div className="flex items-center gap-3 pl-1">
+                    <div aria-hidden="true" className={`w-9 h-9 rounded-full ${tone} flex items-center justify-center`}>
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#101e18" strokeWidth="1.4" strokeLinecap="round">
+                        <circle cx="10" cy="10" r="7.5" />
+                        <circle cx="7.3" cy="8.6" r="0.6" fill="#101e18" />
+                        <circle cx="12.7" cy="8.6" r="0.6" fill="#101e18" />
+                        <path d="M6.8 12 Q10 14.8 13.2 12" />
+                      </svg>
+                    </div>
+                    <span className="text-[13px] text-[#7e7576]">Potential user</span>
+                  </div>
                 </figure>
               ))}
             </div>

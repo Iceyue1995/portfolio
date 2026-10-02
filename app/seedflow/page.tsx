@@ -234,7 +234,7 @@ export default function SeedFlowPage() {
       <Header />
 
       {/* Outer container — matches Figma Main gap-[64px] */}
-      <div className="flex flex-col gap-14 md:gap-20 max-w-7xl mx-auto px-6 md:px-12 py-10 md:py-16">
+      <div className="flex flex-col gap-20 md:gap-32 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
 
         {/* ── Hero + Metadata ───────────────────────────────────────────────── */}
         <div className="flex flex-col gap-8">
@@ -358,8 +358,8 @@ export default function SeedFlowPage() {
         </div>
 
         {/* ── Section 1: The opportunity ────────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-5 flex flex-col gap-4">
+        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
+          <div className="lg:col-span-5 flex flex-col gap-6">
             <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] pb-2">
               The opportunity
             </h2>
@@ -452,10 +452,10 @@ export default function SeedFlowPage() {
         </motion.section>
 
         {/* ── Section 2: Product Experience ────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="flex flex-col gap-8">
+        <motion.section {...scrollFadeUp} className="flex flex-col gap-14">
           {/* Header copy (left) + three equal early screens (right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-5 flex flex-col gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
+            <div className="lg:col-span-5 flex flex-col gap-6">
               <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] pb-2">
                 First hypothesis
               </h2>
@@ -493,7 +493,7 @@ export default function SeedFlowPage() {
           </div>
 
           {/* Core flow */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pt-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start pt-4">
             <div className="lg:col-span-5 flex flex-col gap-6">
             {/* THE CORE FLOW label */}
             <div className="flex items-center gap-3">
@@ -540,7 +540,7 @@ export default function SeedFlowPage() {
         {/* ── Section 3: Key Product Decisions ─────────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-12"
+          className="flex flex-col gap-12 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
         >
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
             Design principles of the first release
@@ -605,8 +605,8 @@ export default function SeedFlowPage() {
         </motion.section>
 
         {/* ── Back to the market ────────────────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          <div className="lg:col-span-5 flex flex-col gap-4">
+        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start">
+          <div className="lg:col-span-5 flex flex-col gap-6">
             <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] pb-2">
               Back to the market
             </h2>
@@ -709,8 +709,8 @@ export default function SeedFlowPage() {
         </motion.section>
 
         {/* ── The real problem ──────────────────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          <div className="lg:col-span-5 flex flex-col gap-4">
+        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start">
+          <div className="lg:col-span-5 flex flex-col gap-6">
             <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] pb-2">
               The real problem
             </h2>
@@ -729,9 +729,9 @@ export default function SeedFlowPage() {
         {/* ── Reframing SeedFlow ──────────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center"
         >
-          <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
+          <div className="lg:col-span-5 flex flex-col gap-6 min-w-0">
             <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] pb-2">
               Reframing SeedFlow
             </h2>
@@ -759,7 +759,7 @@ export default function SeedFlowPage() {
         {/* ── Phase 02 · 3: Key Product Decisions ───────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-12"
+          className="flex flex-col gap-12 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
         >
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
             Decisions that shaped the MVP
@@ -821,7 +821,7 @@ export default function SeedFlowPage() {
         {/* ── Phase 02 · 5: What success means ──────────────────────────────── */}
         <motion.section
           {...scrollFadeUp}
-          className="flex flex-col gap-8 border-t border-b border-[rgba(207,196,197,0.3)] py-12"
+          className="flex flex-col gap-12 border-t border-b border-[rgba(207,196,197,0.3)] py-16"
         >
           <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
             What success means
@@ -837,7 +837,7 @@ export default function SeedFlowPage() {
         </motion.section>
 
         {/* ── Phase 02 · 6: Reflection ──────────────────────────────────────── */}
-        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start pb-4">
+        <motion.section {...scrollFadeUp} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-start pb-4">
           <h2 className="lg:col-span-5 text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
             What I learned
           </h2>

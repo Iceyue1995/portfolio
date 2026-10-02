@@ -859,7 +859,7 @@ export default function SeedFlowPage() {
 
       </div>
 
-      <Footer />
+      <Footer next={{ href: "/project-2", title: "Shopee AI Chatbot Builder" }} />
     </main>
   );
 }

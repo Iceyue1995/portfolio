@@ -840,7 +840,7 @@ export default function Project1Page() {
         </div>
       </motion.section>
 
-      <Footer />
+      <Footer next={{ href: "/seedflow", title: "AI Growth Workflow for Small Businesses" }} />
     </div>
   );
 }

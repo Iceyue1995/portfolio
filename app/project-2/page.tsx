@@ -876,7 +876,7 @@ remaining simple enough for local operators.            </p>
         </div>
       </motion.section>
 
-      <Footer />
+      <Footer next={{ href: "/project-1", title: "AI Agent Platform" }} />
     </main>
   );
 }

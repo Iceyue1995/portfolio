@@ -11,19 +11,19 @@ const scrollFadeUp = (delay = 0) => ({
 
 const pillars = [
   {
-    title: "Simplifying Complexity",
+    title: "Problem before capability",
     description:
-      "Transforming AI jargon and technical workflows into intuitive interfaces that non-technical users can master in minutes, not weeks.",
+      "Start with the user problem, not what the model can do.",
   },
   {
-    title: "Designing for Uncertainty",
+    title: "Design for imperfect AI",
     description:
-      "Guiding users to probabilistic AI systems through transparency, robust architecture, and intelligent feedback loops that reduce user anxiety.",
+      "Make uncertainty, correction, and failure states understandable and manageable.",
   },
   {
-    title: "Human-AI Collaboration",
+    title: "Control before automation",
     description:
-      "Creating interfaces where AI augments human judgment, rather than replacing it. Designing automation with full user control.",
+      "Use AI to reduce effort without removing context, visibility, or user agency.",
   },
 ];
 
@@ -39,12 +39,16 @@ export default function IntroSection() {
             className="font-serif text-[clamp(1.15rem,2vw,1.45rem)] leading-[1.75]
                        text-gray-700 font-normal"
           >
-            Designing for AI is no longer about static mockups. It&rsquo;s
-            about designing systems that think, adapt, and evolve. I specialize
-            in creating experiences that make complex AI technology
-            accessible&mdash;building trust through transparency, control
-            through intelligent defaults, and delight through thoughtful
-            automation.
+            Good AI products are built on judgment, not just capability.
+          </p>
+          <p
+            className="font-serif text-[clamp(1.15rem,2vw,1.45rem)] leading-[1.75]
+                       text-gray-700 font-normal mt-6"
+          >
+            I focus on identifying the real problem, deciding where AI genuinely
+            adds value, and shaping workflows that keep users informed and in
+            control. I build quickly, test assumptions early, and care as much
+            about what not to build as what to automate.
           </p>
         </motion.div>
 

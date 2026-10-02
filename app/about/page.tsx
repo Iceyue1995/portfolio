@@ -51,14 +51,17 @@ export default function AboutPage() {
       >
         <div className="lg:col-span-7">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 leading-[1.1] mb-10">
-            Designing with{" "}
-            <span className="text-blue-400 italic font-light tracking-tight">judgment</span>
+            {"Hello, I'm "}
+            <span className="text-blue-400 italic font-light tracking-tight">Yuwen.</span>
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed mb-6 max-w-xl">
-            AI is getting better at producing answers. The harder part is deciding what is actually worth building around them.
+            A product designer, builder, and curious generalist with 8+ years of experience. I’m especially good at untangling complex systems and turning business problems into product opportunities.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed mb-6 max-w-xl">
+            Over the past year, I’ve been operating like a one-person company: building consumer AI products, putting them in front of real users, and learning from what they use, ignore, pay for, or come back to.
           </p>
           <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-            I’m increasingly focused on product judgment: identifying the real problem behind a request, deciding where AI genuinely adds value, designing for imperfect outputs, and knowing when not to automate. I build and test quickly, but I care just as much about what to remove, what to validate, and what users actually perceive as valuable.
+            I don’t want to be defined by a single title. What matters more is finding meaningful problems, making something real, and learning quickly from the market. Next, I’m looking for a company or partner where the relationship is genuinely mutual, and we can build something new in the AI era.
           </p>
         </div>
         <div className="lg:col-span-5 relative">

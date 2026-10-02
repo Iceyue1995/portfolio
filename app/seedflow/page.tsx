@@ -561,12 +561,11 @@ export default function SeedFlowPage() {
             {/* Left */}
             <div className="flex-1 flex flex-col gap-2">
               <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18]">
-                Building and validating the first release
+                Testing the first release with potential users
               </h2>
               <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546] max-w-[576px] mt-2">
-                SeedFlow is an independent product currently in active development. We are validating
-                core workflows with real creators to refine the account-matching algorithm and visual
-                analysis engine.
+                After the first release, we put SeedFlow in front of potential users to collect
+                feedback and keep testing, using what we learn to adjust the product direction.
               </p>
             </div>
 
@@ -577,6 +576,29 @@ export default function SeedFlowPage() {
                 <img src="/images/sf-icon-leaf.svg" alt="SeedFlow" className="w-full h-full" />
                 <div className="absolute inset-[12.5%] rounded-full bg-[rgba(0,0,0,0.05)]" />
               </div>
+            </div>
+          </div>
+
+          {/* Real feedback from potential users */}
+          <div className="mt-8 flex flex-col gap-4">
+            <p className="text-[12px] font-medium tracking-[0.1em] uppercase text-[#7e7576]">
+              Feedback from potential users
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {[
+                "Wow, this is great. I used to do this with ChatGPT. Your product is more convenient.",
+                "The copy is so well written.",
+                "It would be even better if the copy could be refined to feel less like AI...",
+              ].map((quote) => (
+                <figure
+                  key={quote}
+                  className="border border-[rgba(207,196,197,0.3)] rounded-2xl p-6 md:p-8"
+                >
+                  <blockquote className="text-[18px] font-semibold leading-[1.6] text-[#101e18]">
+                    &ldquo;{quote}&rdquo;
+                  </blockquote>
+                </figure>
+              ))}
             </div>
           </div>
         </motion.section>

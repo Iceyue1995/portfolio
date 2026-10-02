@@ -152,12 +152,12 @@ export default function AboutPage() {
         </div>
       </motion.section>
 
-{/* Beyond the Screen */}
+{/* Taste Beyond the Screen */}
 <motion.section 
         {...fadeInUp}
         className="max-w-7xl mx-auto px-6 md:px-12 py-24"
       >
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-12">Beyond the Screen</h2>
+        <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-12">Taste Beyond the Screen</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Photo 1 */}
@@ -190,7 +190,7 @@ export default function AboutPage() {
         </div>
 
         <p className="text-lg text-gray-600 leading-relaxed max-w-4xl">
-          When I am not designing, you will find me exploring remote landscapes through my camera lens or deeply immersed in books about philosophy and cognitive science. I believe that being a great designer requires a constant curiosity for the world beyond digital boundaries.
+          In the age of AI, taste becomes a designer’s moat. Photography is how I train mine — through composition, rhythm, restraint, and emotional tone.
         </p>
       </motion.section>
 

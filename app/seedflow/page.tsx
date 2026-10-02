@@ -29,7 +29,7 @@ const scrollFadeUp = {
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const metadata = [
-  { label: "ROLE",     value: "Product Builder" },
+  { label: "ROLE",     value: "Product Founder" },
   { label: "TYPE",     value: "AI Growth Tool" },
   { label: "PLATFORM", value: "Mobile Web / App" },
   { label: "TARGET AUDIENCE", value: "SME in Singapore / Thailand" },

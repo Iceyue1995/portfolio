@@ -42,6 +42,67 @@ const metrics = [
 ];
 
 // ── Page ──────────────────────────────────────────────────────────────────────
+const roleCards = [
+  {
+    title: "Product Strategy",
+    description: "Translating the business plan into a buildable product.",
+    icon: "M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7-4h4v18h-4V3z",
+  },
+  {
+    title: "User Research",
+    description: "Defining users and high-impact use cases.",
+    icon: "M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z",
+  },
+  {
+    title: "Design Execution",
+    description: "Leading everything from information architecture to final UI.",
+    icon: "M4 5h16v6H4V5zm0 8h7v6H4v-6zm9 0h7v6h-7v-6z",
+  },
+  {
+    title: "Cross-functional Collaboration",
+    description: "Partnering with the CEO and engineering teams.",
+    icon: "M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M10 10a4 4 0 100-8 4 4 0 000 8zm13 10v-2a4 4 0 00-3-3.87M16 2.13a4 4 0 010 7.75",
+  },
+];
+
+const foundationFlow = [
+  { title: "Users", items: ["Marketing Manager", "SME Owner", "Content Creator"] },
+  { title: "Goals", items: ["Create AI Mascot", "Brand Engagement", "Quick Deployment"] },
+  { title: "Steps", items: ["Define Character", "Train AI Model", "Deploy & Test"] },
+  { title: "Functions", items: ["Character Builder", "AI Training", "Analytics Dashboard"] },
+];
+
+const userStories = [
+  {
+    feature: "Input URL",
+    as: "As a non-technical business owner",
+    want: "I want to see a clear input field in the onboarding flow,",
+    so: "so I can easily enter my website URL and start the knowledge ingestion process.",
+    priority: "P0",
+  },
+  {
+    feature: "Upload documents",
+    as: "As a non-technical business owner",
+    want: "I want to upload my documents (like PDF or DOCX) via drag-and-drop or a click,",
+    so: "so I can easily add product manuals and other files to the knowledge base.",
+    priority: "P0",
+  },
+  {
+    feature: "Task processing and feedback",
+    as: "As a non-technical business owner",
+    want: "I want to see a loading bar and a text prompt (e.g., “Processing your data, please wait…”)",
+    so: "so I know the system is working correctly.",
+    priority: "P0",
+  },
+  {
+    feature: "Data preprocessing and review",
+    as: "As a non-technical business owner",
+    want: "before the knowledge base is officially indexed, I want to be able to quickly review and edit the scraped content",
+    so: "so I can delete irrelevant information (like footers or advertisements).",
+    priority: "P1",
+  },
+];
+
 export default function Project1Page() {
   return (
 <div className="relative min-h-screen bg-white">
@@ -105,7 +166,7 @@ export default function Project1Page() {
       {/* ── Metrics cards ─────────────────────────────────────────── */}
       <motion.section
         {...fadeUp(0.4)}
-        className="w-full px-6 md:px-12 lg:px-20 pb-28"
+        className="w-full px-6 md:px-12 lg:px-20 pb-20"
       >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {metrics.map(({ stat, description }) => (
@@ -132,7 +193,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-20 py-16"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-5">
@@ -166,9 +227,9 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full px-6 md:px-12 lg:px-20 pb-32"
+        className="w-full px-6 md:px-12 lg:px-20 pb-20"
       >
-        <div className="mb-16">
+        <div className="mb-10">
           <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase block mb-6">THE CHALLENGE</span>
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-900 mb-8 leading-tight">
             The convergence chasm.
@@ -240,17 +301,114 @@ export default function Project1Page() {
 
         </div>
       </motion.section>
+      {/* ── My Role ───────────────────────────────────────────────── */}
+      <motion.section
+        {...fadeInUp}
+        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+      >
+        <div className="mb-10">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase block mb-6">MY ROLE</span>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-900 mb-8 leading-tight">
+            Driving the 0-to-1 Vision
+          </h2>
+          <p className="text-xl text-slate-500 leading-relaxed max-w-3xl">
+            This was a 0-to-1 project. I owned product strategy, full design, and cross-functional collaboration from CEO to engineering.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {roleCards.map(({ title, description, icon }) => (
+            <div key={title} className="bg-white rounded-[2rem] border border-gray-100 p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+              <div className="w-11 h-11 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d={icon} /></svg>
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{description}</p>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* ── My Approach ───────────────────────────────────────────── */}
+      <motion.section
+        {...fadeInUp}
+        className="w-full px-6 md:px-12 lg:px-20 pb-20"
+      >
+        <div className="mb-10">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase block mb-6">MY APPROACH</span>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-900 mb-8 leading-tight">
+            Defining the foundation
+          </h2>
+          <p className="text-xl text-slate-500 leading-relaxed max-w-3xl">
+            How I approached this 0-to-1 project. I started with just a business plan from the CEO - very high-level, hard to translate into a buildable product. My first step was defining the product scope through three key questions:{" "}
+            <strong className="font-semibold text-slate-600">Who are the users? What&apos;s their goal? What steps do they need to achieve it?</strong>{" "}
+            This gave us the initial feature set.
+          </p>
+        </div>
+
+        <div className="bg-[#F4F7FB] rounded-[2rem] p-6 md:p-12">
+          {/* Users → Goals → Steps → Functions */}
+          <div className="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-3 mb-10">
+            {foundationFlow.map(({ title, items }, i) => (
+              <div key={title} className="flex flex-col md:flex-row md:items-center gap-4 md:gap-3 md:flex-1">
+                <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] md:flex-1 h-full">
+                  <p className="text-base font-semibold text-slate-900 mb-4">{title}</p>
+                  <ul className="space-y-2">
+                    {items.map((item) => (
+                      <li key={item} className="flex items-center gap-3 text-sm text-slate-600">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {i < foundationFlow.length - 1 && (
+                  <svg className="w-5 h-5 text-blue-600 shrink-0 self-center rotate-90 md:rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* User story table */}
+          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
+            <div className="hidden md:grid md:grid-cols-[1.3fr_1.2fr_2fr_2fr_0.6fr] gap-6 bg-blue-600 px-8 py-4 text-[11px] font-semibold tracking-[0.14em] text-white uppercase">
+              <span>Feature</span>
+              <span>As a...</span>
+              <span>I want to...</span>
+              <span>So that...</span>
+              <span>Priority</span>
+            </div>
+            {userStories.map(({ feature, as, want, so, priority }) => (
+              <div
+                key={feature}
+                className="grid grid-cols-1 md:grid-cols-[1.3fr_1.2fr_2fr_2fr_0.6fr] gap-x-6 gap-y-2 px-6 md:px-8 py-5 items-center border-b border-gray-100 last:border-b-0 text-sm"
+              >
+                <span className="flex items-center gap-3 font-medium text-slate-900">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                  {feature}
+                </span>
+                <span className="text-slate-500">{as}</span>
+                <span className="text-slate-500">{want}</span>
+                <span className="text-slate-500">{so}</span>
+                <span>
+                  <span className="inline-block rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">{priority}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* --- The Trust Problem Section --- */}
       <motion.section 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full py-24 px-6 md:px-12"
+        className="w-full py-16 px-6 md:px-12"
       >
         <div className="w-full mx-auto">
           {/* 大圆角容器 */}
-          <div className="bg-white rounded-[3rem] md:rounded-[5rem] border border-gray-100 w-full p-16 md:p-28 text-center shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-white/50 relative overflow-hidden">
+          <div className="bg-white rounded-[3rem] md:rounded-[5rem] border border-gray-100 w-full p-12 md:p-16 text-center shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-white/50 relative overflow-hidden">
             
             <h3 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-10 tracking-tight">
               The Deeper Trust Problem
@@ -273,7 +431,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 pb-32"
+        className="w-full px-6 md:px-12 lg:px-20 pb-20"
       >
         <h2 className="font-serif font-normal text-[clamp(1.5rem,3vw,2.25rem)]
                        leading-[1.15] tracking-[-0.02em] text-gray-900 mb-12">
@@ -416,7 +574,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-16 mb-24"
+        className="w-full px-6 md:px-12 lg:px-20 mt-8 mb-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Text */}
@@ -447,7 +605,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-16 mb-24"
+        className="w-full px-6 md:px-12 lg:px-20 mt-8 mb-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Step 02 image */}
@@ -508,7 +666,7 @@ export default function Project1Page() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.8, ease: "easeOut" as const }}
-        className="w-full px-6 md:px-12 lg:px-20 mt-16 mb-24"
+        className="w-full px-6 md:px-12 lg:px-20 mt-8 mb-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
           {/* Step 04 image */}
@@ -536,7 +694,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24"
+        className="w-full px-6 md:px-12 lg:px-20 py-16"
       >
         <div className="mb-12">
           <div className="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 shadow-sm">
@@ -551,9 +709,9 @@ export default function Project1Page() {
         </div>
 
         {/* Mode Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 text-center">
           {/* Beginner Mode */}
-          <div className="bg-white rounded-2xl p-10 border border-gray-200 shadow-sm flex flex-col items-center justify-center">
+          <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col items-center justify-center">
             <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-6">
               <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
@@ -561,7 +719,7 @@ export default function Project1Page() {
             <p className="text-slate-500 text-sm">Linear & Guided Workflow</p>
           </div>
           {/* Pro Studio */}
-          <div className="bg-white rounded-2xl p-10 border border-blue-200 shadow-md shadow-blue-50 flex flex-col items-center justify-center">
+          <div className="bg-white rounded-2xl p-8 border border-blue-200 shadow-md shadow-blue-50 flex flex-col items-center justify-center">
             <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6">
               <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
             </div>
@@ -583,39 +741,39 @@ export default function Project1Page() {
             </thead>
             <tbody className="text-sm">
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Workflow</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Linear & Guided</span>A step-by-step wizard (Steps 1-4) designed for speed.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Modular & Non-linear</span>Tab-based navigation allowing deep dives into any section at any time.</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Workflow</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Linear & Guided</span>A step-by-step wizard (Steps 1-4) designed for speed.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Modular & Non-linear</span>Tab-based navigation allowing deep dives into any section at any time.</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Persona & Tone</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Preset-based</span>Choose from 8 fixed archetypes.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Granular Control</span>Uses Tone Sliders (Professionalism, Humor, Empathy).</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Persona & Tone</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Preset-based</span>Choose from 8 fixed archetypes.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Granular Control</span>Uses Tone Sliders (Professionalism, Humor, Empathy).</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Voice Settings</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Standard Presets</span>Selection from a library of pre-recorded AI voices.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Voice Cloning</span>Allows uploading custom audio files to replicate a specific brand voice.</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Voice Settings</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Standard Presets</span>Selection from a library of pre-recorded AI voices.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Voice Cloning</span>Allows uploading custom audio files to replicate a specific brand voice.</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Speech Tech (ASR)</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Automatic</span>System-optimized defaults.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Model Selection</span>Manual choice of ASR engines (Whisper, Deepgram, etc).</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Speech Tech (ASR)</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Automatic</span>System-optimized defaults.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Model Selection</span>Manual choice of ASR engines (Whisper, Deepgram, etc).</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Knowledge Base</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Basic Uploads</span>Supports PDFs, Docs, and URLs.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Advanced System</span>Deep integration with complex knowledge hierarchies.</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Knowledge Base</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Basic Uploads</span>Supports PDFs, Docs, and URLs.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Advanced System</span>Deep integration with complex knowledge hierarchies.</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Relational Logic</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Static Interaction</span>Limited to conversational responses.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Dynamic Integration</span>Includes Tools (API calls) and Guardrails.</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Relational Logic</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Static Interaction</span>Limited to conversational responses.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Dynamic Integration</span>Includes Tools (API calls) and Guardrails.</td>
               </tr>
               <tr className="border-b border-gray-100">
-                <td className="py-5 pr-6 font-medium text-slate-800">Testing/QA</td>
-                <td className="py-5 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Basic Simulation</span>High-level accuracy score.</td>
-                <td className="py-5 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Deep Diagnostics</span>Detailed breakdown of performance.</td>
+                <td className="py-4 pr-6 font-medium text-slate-800">Testing/QA</td>
+                <td className="py-4 pr-6 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Basic Simulation</span>High-level accuracy score.</td>
+                <td className="py-4 text-slate-500"><span className="font-semibold text-slate-700 block mb-1">Deep Diagnostics</span>Detailed breakdown of performance.</td>
               </tr>
             </tbody>
           </table>
@@ -628,7 +786,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+        className="w-full px-6 md:px-12 lg:px-20 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
         <div>
           <div className="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-[10px] font-bold tracking-widest uppercase mb-6 shadow-sm">
@@ -653,7 +811,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 py-12"
+        className="w-full px-6 md:px-12 lg:px-20 py-8"
       >
         <div className="bg-[#EBF2F9] rounded-[2rem] p-8 md:p-16 aspect-video relative overflow-hidden flex items-center justify-center">
             {/* 这里的图片你需要丢进 public/images/ 里面 */}
@@ -667,7 +825,7 @@ export default function Project1Page() {
       ========================================= */}
       <motion.section
         {...fadeInUp}
-        className="w-full px-6 md:px-12 lg:px-20 pt-12 pb-24"
+        className="w-full px-6 md:px-12 lg:px-20 pt-8 pb-16"
       >
         <div className="grid grid-cols-3 gap-3 md:gap-6">
           {[

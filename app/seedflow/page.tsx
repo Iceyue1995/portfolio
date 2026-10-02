@@ -30,9 +30,9 @@ const scrollFadeUp = {
 // ── Data ──────────────────────────────────────────────────────────────────────
 const metadata = [
   { label: "ROLE",     value: "Product Builder" },
-  { label: "TYPE",     value: "Creator Tool" },
+  { label: "TYPE",     value: "AI Growth Tool" },
   { label: "PLATFORM", value: "Mobile Web / App" },
-  { label: "STATUS",   value: "Active Development" },
+  { label: "TARGET AUDIENCE", value: "SME in Singapore / Thailand" },
 ];
 
 const steps = [
@@ -280,7 +280,7 @@ export default function SeedFlowPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-black text-white text-[14px] font-semibold tracking-[0.05em] h-[56px] px-10 rounded-full shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)]"
                 >
-                  View MVP Demo
+                  View Test Version
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/images/sf-icon-arrow.svg" alt="" className="w-3 h-3" />
                 </a>

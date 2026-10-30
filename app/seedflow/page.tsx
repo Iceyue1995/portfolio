@@ -371,7 +371,7 @@ export default function SeedFlowPage() {
             <p className="text-[18px] font-normal leading-[1.6] text-[#4c4546]">
               The initial question was:
             </p>
-            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+            <p className="text-[26px] font-normal leading-[1.35] tracking-[-0.015em] text-[#101e18] mt-4">
               &ldquo;How might AI help non-native Xiaohongshu users create content that actually fits the platform?&rdquo;
             </p>
           </div>
@@ -748,7 +748,7 @@ export default function SeedFlowPage() {
             <h2 className="text-[32px] font-bold leading-[1.2] tracking-[-0.01em] text-[#101e18] pb-2">
               The real problem
             </h2>
-            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+            <p className="text-[26px] font-normal leading-[1.35] tracking-[-0.015em] text-[#101e18] mt-4">
               &ldquo;Small businesses didn&rsquo;t need more generated content. They needed to know what to fix,
               what to publish, and how to keep going.&rdquo;
             </p>
@@ -876,7 +876,7 @@ export default function SeedFlowPage() {
             What I learned
           </h2>
           <div className="lg:col-span-7 flex flex-col gap-4">
-            <p className="text-[24px] font-semibold leading-[1.3] text-[#101e18]">
+            <p className="text-[26px] font-normal leading-[1.35] tracking-[-0.015em] text-[#101e18] mt-4">
               &ldquo;The biggest shift wasn&rsquo;t improving the AI output. It was realizing that generation itself
               wasn&rsquo;t the product.&rdquo;
             </p>
